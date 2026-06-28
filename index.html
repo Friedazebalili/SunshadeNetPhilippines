@@ -138,7 +138,7 @@
       position: relative;
       z-index: 20;
       width: min(1320px, calc(100% - 48px));
-      margin: -72px auto 92px;
+      margin: -72px auto 72px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       background: linear-gradient(135deg, rgba(0, 61, 40, 0.98), rgba(0, 37, 25, 0.98));
@@ -152,8 +152,8 @@
       display: flex;
       align-items: center;
       gap: 18px;
-      padding: 30px 32px;
-      min-height: 126px;
+      padding: 26px 28px;
+      min-height: 112px;
       border-right: 1px solid rgba(255, 255, 255, 0.13);
     }
 
@@ -171,9 +171,9 @@
     }
 
     .feature .icon {
-      width: 56px;
-      height: 56px;
-      min-width: 56px;
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
       border-radius: 50%;
       background: rgba(255, 196, 0, 0.13);
       color: var(--snp-yellow);
@@ -181,15 +181,15 @@
     }
 
     .feature .icon svg {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       stroke-width: 2.1;
     }
 
     .feature h4 {
       margin: 0 0 7px;
       color: #ffffff;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.2;
       text-transform: uppercase;
       letter-spacing: 0.02em;
@@ -198,13 +198,13 @@
     .feature p {
       margin: 0;
       color: rgba(255, 255, 255, 0.86);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.45;
     }
 
     .service-icon {
-      width: 54px;
-      height: 54px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--snp-green);
       color: #ffffff;
@@ -213,8 +213,8 @@
     }
 
     .service-icon svg {
-      width: 25px;
-      height: 25px;
+      width: 22px;
+      height: 22px;
       stroke-width: 2.1;
     }
 
@@ -235,91 +235,95 @@
       stroke-width: 1.9;
     }
 
-    /* UPDATED SERVICES SECTION */
-    .cards.services-wide-grid {
+    /* UPDATED COMPACT SERVICES SECTION */
+    .section:has(.services-compact-grid) {
+      padding-top: 12px;
+    }
+
+    .section:has(.services-compact-grid) .section-head {
+      margin-bottom: 42px;
+    }
+
+    .section:has(.services-compact-grid) .section-title {
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.05;
+    }
+
+    .cards.services-compact-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 22px;
       align-items: stretch;
     }
 
-    .services-wide-grid .service-card {
+    .services-compact-grid .service-card {
       position: relative;
       min-height: 100%;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: 14px;
       background: #ffffff;
       border: 1px solid rgba(0, 61, 40, 0.1);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.055);
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .services-wide-grid .service-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(0, 61, 40, 0.22);
-      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.11);
+    .services-compact-grid .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 61, 40, 0.24);
+      box-shadow: 0 24px 52px rgba(0, 0, 0, 0.1);
     }
 
-    .services-wide-grid .service-card::after {
-      content: "";
-      position: absolute;
-      right: 22px;
-      bottom: 22px;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(255, 196, 0, 0.18);
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all 0.25s ease;
-      pointer-events: none;
+    .services-compact-grid .service-img {
+      min-height: 160px;
+      height: 160px;
+      border-radius: 14px 14px 0 0;
     }
 
-    .services-wide-grid .service-card:hover::after {
-      opacity: 1;
-      transform: scale(1);
+    .services-compact-grid .service-icon {
+      width: 48px;
+      height: 48px;
+      left: 22px;
+      bottom: -24px;
     }
 
-    .services-wide-grid .service-img {
-      min-height: 230px;
-      border-radius: 16px 16px 0 0;
-    }
-
-    .services-wide-grid .service-body {
-      padding: 36px 30px 32px;
+    .services-compact-grid .service-body {
+      padding: 34px 22px 24px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
-    .services-wide-grid .service-body h3 {
-      font-size: clamp(22px, 1.7vw, 30px);
-      line-height: 1.12;
+    .services-compact-grid .service-body h3 {
+      font-size: clamp(17px, 1.05vw, 20px);
+      line-height: 1.24;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .services-compact-grid .service-body p {
+      font-size: 13.5px;
+      line-height: 1.55;
       margin-bottom: 16px;
-      max-width: 92%;
+      color: #52615b;
     }
 
-    .services-wide-grid .service-body p {
-      font-size: 16px;
-      line-height: 1.65;
-      margin-bottom: 22px;
-      color: #475569;
-    }
-
-    .services-wide-grid .mini-list {
-      margin-top: auto;
+    .services-compact-grid .mini-list {
       display: grid;
-      gap: 10px;
-      font-size: 15px;
+      gap: 7px;
+      font-size: 13.2px;
+      line-height: 1.35;
+      margin-top: auto;
     }
 
-    .services-wide-grid .mini-list li {
-      line-height: 1.45;
+    .services-compact-grid .mini-list li {
+      line-height: 1.35;
     }
 
-    .services-wide-grid .mini-list li::marker {
+    .services-compact-grid .mini-list li::marker {
       color: var(--snp-yellow);
     }
 
@@ -328,8 +332,8 @@
       margin: 26px auto 0;
       text-align: center;
       color: #58645f;
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 15px;
+      line-height: 1.65;
     }
 
     .services-note a {
@@ -397,6 +401,17 @@
       transform: translateY(-1px);
     }
 
+    @media (max-width: 1280px) {
+      .cards.services-compact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .services-compact-grid .service-img {
+        height: 190px;
+        min-height: 190px;
+      }
+    }
+
     @media (max-width: 1180px) {
       .header-inner {
         gap: 22px;
@@ -423,10 +438,6 @@
       .feature:nth-child(1),
       .feature:nth-child(2) {
         border-bottom: 1px solid rgba(255, 255, 255, 0.13);
-      }
-
-      .cards.services-wide-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -466,7 +477,7 @@
       .feature-strip {
         width: min(100% - 32px, 720px);
         grid-template-columns: 1fr;
-        margin: -54px auto 72px;
+        margin: -54px auto 60px;
       }
 
       .feature,
@@ -480,17 +491,25 @@
         border-bottom: 0;
       }
 
-      .cards.services-wide-grid {
+      .cards.services-compact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .services-compact-grid .service-img {
+        height: 175px;
+        min-height: 175px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .cards.services-compact-grid {
         grid-template-columns: 1fr;
-        gap: 22px;
       }
 
-      .services-wide-grid .service-img {
-        min-height: 215px;
-      }
-
-      .services-wide-grid .service-body {
-        padding: 34px 26px 30px;
+      .services-compact-grid .service-img {
+        height: 210px;
+        min-height: 210px;
       }
     }
 
@@ -510,10 +529,6 @@
 
       .feature {
         padding: 24px;
-      }
-
-      .services-wide-grid .service-body h3 {
-        font-size: 24px;
       }
     }
   </style>
@@ -641,7 +656,7 @@
         <div class="under"></div>
       </div>
 
-      <div class="cards services-wide-grid">
+      <div class="cards services-compact-grid">
         <article class="service-card">
           <div class="service-img" style="--img:url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85')">
             <div class="service-icon"><i data-lucide="home"></i></div>
