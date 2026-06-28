@@ -105,31 +105,40 @@
 
     .hero {
       position: relative;
-      min-height: 680px;
-      padding: 132px 0 170px;
+      min-height: 650px;
+      padding: 96px 0 140px;
       display: flex;
       align-items: center;
       background-image:
-        linear-gradient(90deg, rgba(0, 31, 22, 0.96) 0%, rgba(0, 31, 22, 0.86) 30%, rgba(0, 31, 22, 0.4) 56%, rgba(0, 31, 22, 0.08) 100%),
+        linear-gradient(90deg, rgba(0, 31, 22, 0.94) 0%, rgba(0, 31, 22, 0.84) 31%, rgba(0, 31, 22, 0.42) 58%, rgba(0, 31, 22, 0.05) 100%),
         var(--hero-img);
       background-size: cover;
-      background-position: center;
+      background-position: center right;
       overflow: visible;
     }
 
     .hero .container {
       position: relative;
       z-index: 3;
+      transform: translateY(-34px);
+    }
+
+    .hero .eyebrow {
+      margin-bottom: 22px;
+      font-size: 14px;
+      letter-spacing: 0.05em;
     }
 
     .headline {
-      margin-bottom: 26px;
-      line-height: 0.98;
+      margin-bottom: 24px;
+      line-height: 0.96;
     }
 
     .hero-copy {
-      max-width: 520px;
+      max-width: 545px;
       margin-bottom: 34px;
+      font-size: 19px;
+      line-height: 1.45;
     }
 
     .hero-buttons {
@@ -139,6 +148,20 @@
       gap: 16px;
       position: relative;
       z-index: 10;
+    }
+
+    .hero-buttons .btn {
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-buttons .btn svg {
+      width: 18px;
+      height: 18px;
     }
 
     .feature-strip {
@@ -225,7 +248,6 @@
       stroke-width: 2.1;
     }
 
-    /* SERVICES — COMPACT 3 + 3 */
     .section:has(.services-3-grid) {
       padding-top: 0;
       padding-bottom: 58px;
@@ -351,7 +373,6 @@
       border-bottom: 2px solid var(--snp-yellow);
     }
 
-    /* PROCESS SECTION — CLEAN SAMPLE STYLE */
     .section-soft {
       background: #f5f8f6;
       padding: 46px 0;
@@ -502,7 +523,6 @@
       line-height: 1.45;
     }
 
-    /* WHY CHOOSE SECTION — CENTERED WITH SITE ALIGNMENT */
     .split-banner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -672,6 +692,15 @@
         max-width: 188px;
       }
 
+      .hero {
+        min-height: 620px;
+        padding: 88px 0 132px;
+      }
+
+      .hero .container {
+        transform: translateY(-24px);
+      }
+
       .feature-strip {
         grid-template-columns: repeat(2, 1fr);
         margin-top: -58px;
@@ -717,12 +746,27 @@
 
       .hero {
         min-height: auto;
-        padding: 86px 0 120px;
-        background-position: center;
+        padding: 78px 0 116px;
+        background-position: center right;
+      }
+
+      .hero .container {
+        transform: translateY(0);
+      }
+
+      .hero-copy {
+        font-size: 16px;
+        max-width: 500px;
       }
 
       .headline {
         font-size: clamp(48px, 13vw, 74px);
+      }
+
+      .hero-buttons .btn {
+        min-height: 48px;
+        padding: 0 22px;
+        font-size: 12.5px;
       }
 
       .feature-strip {
@@ -802,12 +846,30 @@
 
     @media (max-width: 520px) {
       .hero {
-        padding: 72px 0 105px;
+        padding: 68px 0 102px;
+        background-position: 64% center;
+      }
+
+      .hero .eyebrow {
+        font-size: 12px;
+        margin-bottom: 16px;
+      }
+
+      .hero-copy {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 28px;
+      }
+
+      .hero-buttons {
+        gap: 12px;
       }
 
       .hero-buttons .btn {
         width: 100%;
         justify-content: center;
+        min-height: 50px;
+        font-size: 12.5px;
       }
 
       .feature-strip {
