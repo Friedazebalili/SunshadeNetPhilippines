@@ -491,14 +491,47 @@
     }
 
     .services-intro {
-      padding: 84px 0 42px;
+      padding: 86px 0 58px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 196, 0, 0.12), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-intro::before {
+      content: "";
+      position: absolute;
+      left: -120px;
+      bottom: -160px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(0, 61, 40, 0.055);
+      pointer-events: none;
     }
 
     .split-head {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 44px;
-      align-items: end;
+      grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
+      gap: 58px;
+      align-items: center;
+    }
+
+    .intro-title-wrap {
+      position: relative;
+    }
+
+    .intro-title-wrap::after {
+      content: "";
+      width: 92px;
+      height: 6px;
+      display: block;
+      margin-top: 28px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--snp-yellow), rgba(255, 196, 0, 0));
     }
 
     .kicker {
@@ -523,11 +556,85 @@
       text-transform: uppercase;
     }
 
-    .split-head p {
-      margin: 0;
+    .intro-copy-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 61, 40, 0.12);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 24px 60px rgba(0, 61, 40, 0.09);
+    }
+
+    .intro-copy-card p {
+      margin: 0 0 24px;
       color: var(--snp-muted);
       font-size: 16px;
       line-height: 1.72;
+    }
+
+    .intro-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .intro-point {
+      min-height: 118px;
+      padding: 18px 16px;
+      border-radius: 18px;
+      background: var(--snp-soft);
+      border: 1px solid rgba(0, 61, 40, 0.08);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .intro-point:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 61, 40, 0.18);
+      background: #ffffff;
+    }
+
+    .intro-point i {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--snp-green);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 13px;
+    }
+
+    .intro-point svg {
+      width: 19px;
+      height: 19px;
+      stroke-width: 2.4;
+    }
+
+    .intro-point strong {
+      display: block;
+      color: var(--snp-text);
+      font-size: 13px;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .intro-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .intro-tags span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(0, 61, 40, 0.07);
+      color: var(--snp-green-dark);
+      font-size: 12px;
+      font-weight: 800;
     }
 
     .service-showcase {
@@ -1199,11 +1306,23 @@
 
       .split-head {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 26px;
       }
 
       .services-intro {
-        padding: 58px 0 28px;
+        padding: 62px 0 42px;
+      }
+
+      .intro-copy-card {
+        padding: 24px;
+      }
+
+      .intro-points {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-point {
+        min-height: auto;
       }
 
       .service-showcase {
@@ -1320,6 +1439,24 @@
       .selection-copy h2,
       .quote-ready h2 {
         font-size: 34px;
+      }
+
+      .services-intro {
+        padding: 58px 0 38px;
+      }
+
+      .intro-copy-card {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .intro-copy-card p {
+        font-size: 14.5px;
+        line-height: 1.6;
+      }
+
+      .intro-tags span {
+        font-size: 11.5px;
       }
 
       .service-title-row {
@@ -1516,12 +1653,42 @@
     <section class="services-intro">
       <div class="container">
         <div class="split-head">
-          <div>
+          <div class="intro-title-wrap">
             <div class="kicker">What We Offer</div>
             <h2>Different spaces need different shade solutions.</h2>
           </div>
 
-          <p>Instead of forcing one design into every project, we recommend a shade setup based on the actual space, sun exposure, usage, material needs, and structure requirements.</p>
+          <div class="intro-copy-card">
+            <p>
+              Instead of using one generic layout for every project, we recommend a shade setup based on your actual space, sun exposure, daily use, material needs, and structure requirements.
+            </p>
+
+            <div class="intro-points">
+              <div class="intro-point">
+                <i data-lucide="sun"></i>
+                <strong>Sun exposure checked</strong>
+              </div>
+
+              <div class="intro-point">
+                <i data-lucide="ruler"></i>
+                <strong>Measured for proper fit</strong>
+              </div>
+
+              <div class="intro-point">
+                <i data-lucide="shield-check"></i>
+                <strong>Built for daily outdoor use</strong>
+              </div>
+            </div>
+
+            <div class="intro-tags">
+              <span>Homes</span>
+              <span>Car Parks</span>
+              <span>Schools</span>
+              <span>Resorts</span>
+              <span>Commercial Spaces</span>
+              <span>Custom Structures</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
