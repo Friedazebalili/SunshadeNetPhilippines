@@ -16,6 +16,10 @@
       --snp-text: #07150f;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       scroll-padding-top: 112px;
     }
@@ -692,6 +696,49 @@
       transform: translateY(-1px);
     }
 
+    .backtop {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 56px;
+      height: 56px;
+      border: none;
+      border-radius: 50%;
+      background: var(--snp-green);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 16px 34px rgba(0, 61, 40, 0.26);
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .backtop i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+    }
+
+    .backtop svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.7;
+    }
+
+    .backtop:hover {
+      background: var(--snp-green-dark);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 38px rgba(0, 31, 22, 0.32);
+    }
+
+    .backtop:focus-visible {
+      outline: 3px solid rgba(255, 196, 0, 0.8);
+      outline-offset: 3px;
+    }
+
     @media (max-width: 1280px) {
       .cards.services-3-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -951,6 +998,18 @@
 
       .split-banner-img {
         min-height: 250px;
+      }
+
+      .backtop {
+        width: 50px;
+        height: 50px;
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .backtop svg {
+        width: 20px;
+        height: 20px;
       }
     }
   </style>
@@ -1401,11 +1460,20 @@
     <div class="container copyright">© 2025 Sunshade Net Philippines. All Rights Reserved.</div>
   </footer>
 
-  <button class="backtop">↑</button>
+  <button class="backtop" aria-label="Back to top" type="button">
+    <i data-lucide="chevron-up"></i>
+  </button>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
+
+    const backTopBtn = document.querySelector('.backtop');
+    if (backTopBtn) {
+      backTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   </script>
   <script src="assets/js/main.js"></script>
 </body>
