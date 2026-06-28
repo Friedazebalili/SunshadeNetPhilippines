@@ -63,6 +63,39 @@
       gap: 14px;
     }
 
+    .top-location,
+    .footer-contact-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .top-location i,
+    .footer-contact-line i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+      flex-shrink: 0;
+      color: var(--snp-green);
+    }
+
+    .top-location svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2.7;
+    }
+
+    .footer-contact-line svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2.5;
+    }
+
+    .footer-contact-line i {
+      color: var(--snp-yellow);
+    }
+
     .btn,
     .small-link {
       display: inline-flex;
@@ -535,18 +568,18 @@
       background:
         linear-gradient(135deg, rgba(0, 61, 40, 0.98), rgba(0, 24, 17, 0.98));
       color: #ffffff;
-      padding: 86px 64px;
+      padding: 86px 78px 86px 34px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: flex-end;
     }
 
     .split-banner-content .section-title,
     .split-banner-content ul {
       width: min(100%, 520px);
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     .split-banner-content .section-title {
@@ -831,6 +864,7 @@
 
       .split-banner-content {
         padding: 64px 28px;
+        align-items: flex-start;
       }
 
       .split-banner-content .section-title,
@@ -928,7 +962,10 @@
       <div class="topbar-left">Built for Philippine Weather. Custom Sunshade Solutions That Last.</div>
 
       <div class="top-icons">
-        <span> Pampanga, Philippines</span>
+        <span class="top-location">
+          <i data-lucide="map-pin"></i>
+          Pampanga, Philippines
+        </span>
 
         <div class="social-icons">
           <a href="https://www.facebook.com/SunshadeNetPhilippines" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -1351,7 +1388,12 @@
         <ul>
           <li>☎ 0965 123 4567</li>
           <li>✉ info@sunshadenetphilippines.com</li>
-          <li>📍 Quezon City, Metro Manila, Philippines</li>
+          <li>
+            <span class="footer-contact-line">
+              <i data-lucide="map-pin"></i>
+              Quezon City, Metro Manila, Philippines
+            </span>
+          </li>
         </ul>
       </div>
     </div>
