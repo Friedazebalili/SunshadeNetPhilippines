@@ -39,7 +39,7 @@ body {
   font-size: 16px;
   line-height: 1.55;
   overflow-x: hidden;
-  scroll-padding-top: 84px;
+  scroll-padding-top: 66px;
 }
 
 a {
@@ -60,10 +60,10 @@ img {
 /* TOPBAR */
 .topbar {
   background: linear-gradient(90deg, var(--yellow), #ffd94d, var(--yellow));
-  min-height: 42px;
+  min-height: 34px;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
   color: #08130f;
   position: relative;
@@ -74,17 +74,17 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
 }
 
 .topbar-left:before {
   content: '☀';
-  margin-right: 8px;
+  margin-right: 7px;
 }
 
 .top-icons {
   display: flex;
-  gap: 18px;
+  gap: 14px;
   align-items: center;
   white-space: nowrap;
 }
@@ -100,17 +100,17 @@ img {
   width: 100% !important;
   background: #ffffff !important;
   color: #07150f !important;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07) !important;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.065) !important;
 }
 
 .header-inner {
-  min-height: 82px !important;
+  min-height: 64px !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between;
-  gap: 30px !important;
+  gap: 24px !important;
 }
 
 .logo {
@@ -121,8 +121,8 @@ img {
 }
 
 .logo img {
-  width: 200px !important;
-  max-width: 200px !important;
+  width: 165px !important;
+  max-width: 165px !important;
   height: auto !important;
   display: block !important;
   object-fit: contain !important;
@@ -132,11 +132,11 @@ img {
 .nav {
   display: flex;
   align-items: center;
-  gap: 30px;
-  font-size: 13px;
+  gap: 22px;
+  font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .035em;
 }
 
 .nav a {
@@ -151,7 +151,7 @@ img {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -16px;
+  bottom: -10px;
   height: 3px;
   background: var(--yellow);
   border-radius: 999px;
@@ -161,7 +161,7 @@ img {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .btn,
@@ -169,15 +169,15 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 9px;
 }
 
 .btn {
   border: 0;
   border-radius: 6px;
-  padding: 16px 26px;
+  padding: 11px 17px;
   font-weight: 900;
-  font-size: 13px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: .02em;
   cursor: pointer;
@@ -196,15 +196,15 @@ img {
 }
 
 .btn svg {
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
   stroke-width: 2.4;
   transition: transform 0.25s ease;
 }
 
 .small-link svg {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   stroke-width: 2.4;
   transition: transform 0.25s ease;
 }
@@ -221,12 +221,12 @@ img {
 .btn-yellow {
   background: linear-gradient(135deg, var(--yellow), #ffd94d);
   color: #050505;
-  box-shadow: 0 10px 20px rgba(255, 196, 0, .22);
+  box-shadow: 0 8px 18px rgba(255, 196, 0, .2);
 }
 
 .btn-yellow:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 28px rgba(255, 196, 0, .3);
+  box-shadow: 0 14px 24px rgba(255, 196, 0, .27);
 }
 
 .btn-dark {
@@ -256,8 +256,8 @@ img {
   color: var(--green);
   border: 1px solid rgba(0, 61, 40, .2);
   border-radius: 8px;
-  font-size: 25px;
-  padding: 8px 12px;
+  font-size: 22px;
+  padding: 6px 10px;
 }
 
 /* HERO */
@@ -1105,16 +1105,16 @@ img {
 }
 
 .topbar .social-icons a {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border: none;
   background: transparent;
   color: #07150f;
 }
 
 .topbar .social-icons a svg {
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
 }
 
 .topbar .social-icons a:hover {
@@ -1585,7 +1585,7 @@ img {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -16px;
+  bottom: -10px;
   height: 3px;
   background: var(--yellow);
   border-radius: 999px;
@@ -1613,25 +1613,27 @@ img {
 
 @media (max-width: 1180px) {
   body {
-    scroll-padding-top: 78px;
+    scroll-padding-top: 62px;
   }
 
   .nav {
-    gap: 18px;
+    gap: 16px;
+    font-size: 11px;
   }
 
   .header-inner {
-    min-height: 76px !important;
-    gap: 22px !important;
+    min-height: 60px !important;
+    gap: 18px !important;
   }
 
   .header-actions .btn {
-    padding: 13px 15px;
+    padding: 10px 12px;
+    font-size: 11px;
   }
 
   .logo img {
-    width: 178px !important;
-    max-width: 178px !important;
+    width: 148px !important;
+    max-width: 148px !important;
   }
 
   .cards-6,
@@ -1670,7 +1672,7 @@ img {
 
 @media (max-width: 900px) {
   body {
-    scroll-padding-top: 72px;
+    scroll-padding-top: 56px;
   }
 
   .container {
@@ -1679,27 +1681,31 @@ img {
 
   .topbar {
     height: auto;
-    padding: 8px 0;
+    min-height: auto;
+    padding: 6px 0;
+    font-size: 11px;
   }
 
   .topbar .container {
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
   }
 
   .header-inner {
-    min-height: 72px !important;
+    min-height: 56px !important;
     padding: 0 !important;
   }
 
   .logo img {
-    width: 155px !important;
-    max-width: 155px !important;
+    width: 130px !important;
+    max-width: 130px !important;
   }
 
   .mobile-toggle {
     display: inline-flex !important;
     margin-left: auto !important;
+    font-size: 20px;
+    padding: 5px 9px;
   }
 
   .nav {
