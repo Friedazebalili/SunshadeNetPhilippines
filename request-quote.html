@@ -508,7 +508,7 @@
         radial-gradient(circle at top right, rgba(255, 196, 0, 0.12), transparent 34%),
         linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%);
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .quote-form-section::before {
@@ -539,6 +539,16 @@
       border-radius: 24px;
       padding: 34px;
       box-shadow: 0 24px 60px rgba(0, 61, 40, 0.09);
+    }
+
+    .quote-side-card {
+      display: grid;
+      gap: 18px;
+      position: sticky;
+      top: 132px;
+      align-self: start;
+      height: fit-content;
+      margin-top: 0;
     }
 
     .kicker {
@@ -662,10 +672,6 @@
       gap: 12px;
     }
 
-    .choice-grid.install-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
     .choice-card {
       position: relative;
       min-height: 132px;
@@ -727,10 +733,6 @@
       color: var(--snp-muted);
       font-size: 12px;
       line-height: 1.35;
-    }
-
-    .choice-card input:checked + .choice-card-inner {
-      position: relative;
     }
 
     .choice-card:has(input:checked) {
@@ -829,13 +831,6 @@
       width: max-content;
       min-width: 190px;
       min-height: 52px;
-    }
-
-    .quote-side-card {
-      display: grid;
-      gap: 18px;
-      position: sticky;
-      top: 120px;
     }
 
     .side-panel {
@@ -1205,14 +1200,14 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .choice-grid,
-      .choice-grid.install-grid {
+      .choice-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .quote-side-card {
         position: relative;
         top: auto;
+        align-self: stretch;
       }
 
       .quote-process-row {
@@ -1445,8 +1440,7 @@
       }
 
       .quote-step-tabs,
-      .choice-grid,
-      .choice-grid.install-grid {
+      .choice-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1712,7 +1706,7 @@
 
             <div class="form-section-title">
               <h3>What kind of shade project do you need?</h3>
-              <p>Select the project type that best matches your space. This replaces the messy dropdown and makes the form easier to understand.</p>
+              <p>Select the project type that best matches your space.</p>
             </div>
 
             <div class="choice-grid">
@@ -1788,7 +1782,7 @@
               <p>Choose how you want the project handled. You can still change this later after assessment.</p>
             </div>
 
-            <div class="choice-grid install-grid">
+            <div class="choice-grid">
               <label class="choice-card">
                 <input type="radio" name="install" required>
                 <span class="choice-card-inner">
