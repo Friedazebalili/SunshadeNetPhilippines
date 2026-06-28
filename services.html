@@ -17,6 +17,7 @@
       --snp-muted: #5c6963;
       --snp-soft: #f5f8f6;
       --snp-border: rgba(0, 61, 40, 0.12);
+      --snp-shadow: 0 18px 46px rgba(0, 0, 0, 0.08);
     }
 
     html {
@@ -109,6 +110,20 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+      text-decoration: none;
+    }
+
+    .btn {
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
     }
 
     .btn i,
@@ -139,8 +154,63 @@
       transform: translateX(3px);
     }
 
-    .btn-outline:hover svg {
-      transform: scale(1.08);
+    .btn-yellow {
+      background: var(--snp-yellow);
+      color: var(--snp-green-dark);
+      border-color: var(--snp-yellow);
+      box-shadow: 0 14px 30px rgba(255, 196, 0, 0.22);
+    }
+
+    .btn-yellow:hover {
+      background: #ffd94a;
+      border-color: #ffd94a;
+      color: var(--snp-green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(255, 196, 0, 0.28);
+    }
+
+    .btn-dark {
+      background: var(--snp-green);
+      color: #ffffff;
+      border-color: var(--snp-green);
+      box-shadow: 0 14px 30px rgba(0, 61, 40, 0.18);
+    }
+
+    .btn-dark:hover {
+      background: var(--snp-green-dark);
+      border-color: var(--snp-green-dark);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--snp-green);
+      border-color: rgba(0, 61, 40, 0.36);
+    }
+
+    .btn-outline:hover {
+      background: var(--snp-green);
+      color: #ffffff;
+      border-color: var(--snp-green);
+      transform: translateY(-2px);
+    }
+
+    .on-dark .btn-outline,
+    .services-hero .btn-outline,
+    .quote-ready .btn-outline {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.62);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .on-dark .btn-outline:hover,
+    .services-hero .btn-outline:hover,
+    .quote-ready .btn-outline:hover {
+      color: var(--snp-green-dark);
+      border-color: #ffffff;
+      background: #ffffff;
     }
 
     .social-icons {
@@ -210,10 +280,12 @@
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 78% 16%, rgba(255, 196, 0, 0.16), transparent 28%),
-        linear-gradient(135deg, #00150f 0%, #002d1e 55%, #003d28 100%);
+        linear-gradient(90deg, rgba(0, 21, 15, 0.98) 0%, rgba(0, 45, 30, 0.94) 52%, rgba(0, 61, 40, 0.74) 100%),
+        url("https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/be806bf487c59bccd960e4a38d00ac777ff6001b/assets/images/627005169_915310221075692_2968939765362733103_n.jpg");
+      background-size: cover;
+      background-position: center;
       color: #ffffff;
-      padding: 86px 0 92px;
+      padding: 92px 0 102px;
     }
 
     .services-hero::before {
@@ -223,28 +295,40 @@
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 44px 44px;
-      opacity: 0.45;
+      background-size: 46px 46px;
+      opacity: 0.5;
       pointer-events: none;
     }
 
-    .services-hero-grid {
+    .services-hero::after {
+      content: "";
+      position: absolute;
+      right: -170px;
+      top: -190px;
+      width: 470px;
+      height: 470px;
+      border-radius: 50%;
+      background: rgba(255, 196, 0, 0.14);
+      pointer-events: none;
+    }
+
+    .services-hero-inner {
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: 1fr 430px;
+      grid-template-columns: minmax(0, 1fr) 390px;
       gap: 54px;
       align-items: center;
     }
 
-    .hero-copybox {
-      max-width: 720px;
+    .services-hero-copy {
+      max-width: 740px;
     }
 
-    .hero-copybox .eyebrow {
+    .services-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
       color: var(--snp-yellow);
       font-size: 13px;
       font-weight: 900;
@@ -253,7 +337,7 @@
       margin-bottom: 20px;
     }
 
-    .hero-copybox .eyebrow::before {
+    .services-eyebrow::before {
       content: "";
       width: 34px;
       height: 2px;
@@ -261,148 +345,97 @@
       border-radius: 999px;
     }
 
-    .hero-copybox h1 {
+    .services-hero h1 {
       margin: 0 0 24px;
       color: #ffffff;
-      font-size: clamp(52px, 6.4vw, 98px);
-      line-height: 0.9;
+      font-size: clamp(52px, 6.2vw, 94px);
+      line-height: 0.91;
       letter-spacing: -0.055em;
       text-transform: uppercase;
     }
 
-    .hero-copybox h1 span {
+    .services-hero h1 span {
       color: var(--snp-yellow);
     }
 
-    .hero-copybox p {
+    .services-hero p {
       margin: 0 0 34px;
       max-width: 610px;
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 18px;
-      line-height: 1.6;
+      line-height: 1.58;
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       position: relative;
       z-index: 10;
     }
 
-    .hero-buttons .btn {
-      min-height: 50px;
-      padding: 0 24px;
-      border-radius: 7px;
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.01em;
-    }
-
-    .hero-buttons .btn svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .hero-service-panel {
-      background: rgba(255, 255, 255, 0.08);
+    .service-summary-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 22px;
-      padding: 22px;
+      padding: 24px;
       backdrop-filter: blur(12px);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.26);
     }
 
-    .hero-panel-img {
-      height: 230px;
-      border-radius: 16px;
-      background-image: url("https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/be806bf487c59bccd960e4a38d00ac777ff6001b/assets/images/627005169_915310221075692_2968939765362733103_n.jpg");
-      background-size: cover;
-      background-position: center;
-      margin-bottom: 18px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-panel-img::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(0, 31, 22, 0.38), transparent 65%);
-    }
-
-    .hero-panel-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .service-summary-card h2 {
+      margin: 0 0 16px;
       color: #ffffff;
-      font-weight: 900;
+      font-size: 24px;
+      line-height: 1.05;
       text-transform: uppercase;
-      line-height: 1.2;
-      margin-bottom: 14px;
+      letter-spacing: -0.025em;
     }
 
-    .hero-panel-title i {
-      width: 42px;
-      height: 42px;
+    .service-summary-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .service-summary-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 13.5px;
+      line-height: 1.4;
+    }
+
+    .service-summary-list i {
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: var(--snp-yellow);
       color: var(--snp-green-dark);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
     }
 
-    .hero-panel-title svg {
-      width: 21px;
-      height: 21px;
-      stroke-width: 2.3;
+    .service-summary-list svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 2.6;
     }
 
-    .hero-panel-list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .hero-panel-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 13.5px;
-      line-height: 1.35;
-    }
-
-    .hero-panel-list i {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(255, 196, 0, 0.14);
-      color: var(--snp-yellow);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .hero-panel-list svg {
-      width: 13px;
-      height: 13px;
-      stroke-width: 3;
-    }
-
-    .service-nav-wrap {
+    .service-tabs-wrap {
+      margin-top: -36px;
       position: relative;
-      z-index: 4;
-      margin-top: -34px;
+      z-index: 5;
     }
 
-    .service-nav {
+    .service-tabs {
       background: #ffffff;
       border: 1px solid rgba(0, 61, 40, 0.1);
       border-radius: 18px;
@@ -413,7 +446,7 @@
       gap: 8px;
     }
 
-    .service-nav a {
+    .service-tabs a {
       min-height: 78px;
       border-radius: 12px;
       background: #f8faf9;
@@ -433,40 +466,39 @@
       transition: all 0.25s ease;
     }
 
-    .service-nav a i {
+    .service-tabs a i {
       color: var(--snp-green);
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
 
-    .service-nav a svg {
+    .service-tabs a svg {
       width: 22px;
       height: 22px;
       stroke-width: 2.2;
     }
 
-    .service-nav a:hover {
+    .service-tabs a:hover {
       background: var(--snp-green);
       color: #ffffff;
       transform: translateY(-3px);
       box-shadow: 0 16px 34px rgba(0, 61, 40, 0.18);
     }
 
-    .service-nav a:hover i {
+    .service-tabs a:hover i {
       color: var(--snp-yellow);
     }
 
-    .service-overview {
-      padding: 84px 0 54px;
+    .services-intro {
+      padding: 84px 0 42px;
     }
 
-    .section-split-head {
+    .split-head {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 46px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 44px;
       align-items: end;
-      margin-bottom: 38px;
     }
 
     .kicker {
@@ -478,68 +510,89 @@
       margin-bottom: 12px;
     }
 
-    .section-split-head h2,
+    .split-head h2,
     .included-copy h2,
-    .fit-copy h2,
-    .timeline-head h2,
+    .process-head h2,
+    .selection-copy h2,
     .quote-ready h2 {
       margin: 0;
       color: var(--snp-text);
-      font-size: clamp(34px, 4.2vw, 62px);
+      font-size: clamp(34px, 4vw, 62px);
       line-height: 0.96;
       letter-spacing: -0.04em;
       text-transform: uppercase;
     }
 
-    .section-split-head p {
+    .split-head p {
       margin: 0;
       color: var(--snp-muted);
       font-size: 16px;
       line-height: 1.72;
     }
 
-    .service-detail-list {
-      display: grid;
-      gap: 26px;
+    .service-showcase {
+      padding: 34px 0 84px;
     }
 
-    .service-detail {
+    .service-stack {
       display: grid;
-      grid-template-columns: 360px 1fr;
+      gap: 24px;
+    }
+
+    .service-block {
+      display: grid;
+      grid-template-columns: 39% 61%;
+      overflow: hidden;
       background: #ffffff;
       border: 1px solid var(--snp-border);
       border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.055);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: var(--snp-shadow);
+      min-height: 310px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .service-detail:hover {
+    .service-block:hover {
       transform: translateY(-5px);
-      box-shadow: 0 26px 58px rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 61, 40, 0.24);
+      box-shadow: 0 28px 62px rgba(0, 0, 0, 0.12);
     }
 
-    .service-detail-img {
-      min-height: 300px;
+    .service-block:nth-child(even) {
+      grid-template-columns: 61% 39%;
+    }
+
+    .service-block:nth-child(even) .service-photo {
+      order: 2;
+    }
+
+    .service-photo {
+      min-height: 310px;
       background-image: var(--img);
       background-size: cover;
       background-position: center;
       position: relative;
     }
 
-    .service-detail-img::after {
+    .service-photo::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(0deg, rgba(0, 31, 22, 0.36), transparent 68%);
+      background: linear-gradient(0deg, rgba(0, 31, 22, 0.42), transparent 68%);
     }
 
-    .service-detail-content {
-      padding: 34px 34px 32px;
+    .service-content {
+      padding: 38px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .service-title-row {
       display: grid;
-      grid-template-columns: 68px 1fr;
-      gap: 20px;
-      align-items: start;
+      grid-template-columns: 62px 1fr;
+      gap: 17px;
+      align-items: center;
+      margin-bottom: 16px;
     }
 
     .service-mark {
@@ -560,38 +613,38 @@
       stroke-width: 2.2;
     }
 
-    .service-detail h3 {
-      margin: 0 0 10px;
+    .service-block h3 {
+      margin: 0;
       color: var(--snp-text);
-      font-size: 27px;
-      line-height: 1.02;
-      letter-spacing: -0.03em;
+      font-size: clamp(24px, 2vw, 34px);
+      line-height: 1;
+      letter-spacing: -0.035em;
       text-transform: uppercase;
     }
 
-    .service-detail p {
+    .service-content p {
       margin: 0 0 20px;
       color: var(--snp-muted);
       font-size: 15px;
       line-height: 1.62;
     }
 
-    .service-tags {
+    .service-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
+      gap: 8px;
       margin-bottom: 22px;
     }
 
-    .service-tags span {
+    .service-meta span {
       display: inline-flex;
       align-items: center;
       min-height: 30px;
       padding: 0 12px;
       border-radius: 999px;
-      background: #f3f7f5;
-      color: #20342c;
+      background: var(--snp-soft);
       border: 1px solid rgba(0, 61, 40, 0.1);
+      color: #263832;
       font-size: 12px;
       font-weight: 800;
     }
@@ -599,13 +652,13 @@
     .small-link {
       color: var(--snp-green);
       font-weight: 900;
-      text-decoration: none;
       font-size: 13px;
       text-transform: uppercase;
+      width: max-content;
     }
 
     .included-section {
-      padding: 78px 0;
+      padding: 76px 0;
       background: var(--snp-soft);
       border-top: 1px solid rgba(0, 61, 40, 0.06);
       border-bottom: 1px solid rgba(0, 61, 40, 0.06);
@@ -613,7 +666,7 @@
 
     .included-grid {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
+      grid-template-columns: 0.82fr 1.18fr;
       gap: 46px;
       align-items: center;
     }
@@ -672,34 +725,34 @@
       line-height: 1.5;
     }
 
-    .fit-section {
-      padding: 82px 0;
+    .selection-section {
+      padding: 80px 0;
       background: #ffffff;
     }
 
-    .fit-grid {
+    .selection-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr 1fr;
       gap: 46px;
       align-items: center;
     }
 
-    .fit-copy p {
+    .selection-copy p {
       color: var(--snp-muted);
       font-size: 15.5px;
       line-height: 1.7;
       margin: 20px 0 28px;
     }
 
-    .fit-checklist {
+    .selection-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: grid;
       gap: 12px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
     }
 
-    .fit-checklist li {
+    .selection-list li {
       display: grid;
       grid-template-columns: 30px 1fr;
       gap: 10px;
@@ -709,7 +762,7 @@
       line-height: 1.45;
     }
 
-    .fit-checklist i {
+    .selection-list i {
       width: 26px;
       height: 26px;
       border-radius: 50%;
@@ -718,17 +771,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      margin-top: -2px;
     }
 
-    .fit-checklist svg {
+    .selection-list svg {
       width: 15px;
       height: 15px;
       stroke-width: 3;
     }
 
-    .fit-card {
+    .selection-card {
       background:
-        linear-gradient(135deg, rgba(0, 61, 40, 0.96), rgba(0, 24, 17, 0.98));
+        linear-gradient(135deg, rgba(0, 61, 40, 0.97), rgba(0, 24, 17, 0.98));
       border-radius: 22px;
       padding: 34px;
       color: #ffffff;
@@ -737,7 +791,7 @@
       box-shadow: 0 24px 60px rgba(0, 61, 40, 0.2);
     }
 
-    .fit-card::after {
+    .selection-card::after {
       content: "";
       position: absolute;
       width: 220px;
@@ -748,7 +802,7 @@
       top: -96px;
     }
 
-    .fit-card h3 {
+    .selection-card h3 {
       position: relative;
       z-index: 2;
       margin: 0 0 18px;
@@ -759,7 +813,7 @@
       text-transform: uppercase;
     }
 
-    .fit-card-list {
+    .prep-list {
       position: relative;
       z-index: 2;
       display: grid;
@@ -769,7 +823,7 @@
       list-style: none;
     }
 
-    .fit-card-list li {
+    .prep-list li {
       display: flex;
       gap: 10px;
       align-items: flex-start;
@@ -778,7 +832,7 @@
       line-height: 1.48;
     }
 
-    .fit-card-list i {
+    .prep-list i {
       color: var(--snp-yellow);
       display: inline-flex;
       align-items: center;
@@ -787,24 +841,24 @@
       flex-shrink: 0;
     }
 
-    .fit-card-list svg {
+    .prep-list svg {
       width: 17px;
       height: 17px;
       stroke-width: 2.7;
     }
 
-    .timeline-section {
-      padding: 80px 0;
+    .process-section {
+      padding: 78px 0;
       background: var(--snp-soft);
     }
 
-    .timeline-head {
+    .process-head {
       max-width: 720px;
-      margin: 0 auto 42px;
+      margin: 0 auto 40px;
       text-align: center;
     }
 
-    .timeline-head p {
+    .process-head p {
       margin: 18px auto 0;
       max-width: 570px;
       color: var(--snp-muted);
@@ -812,95 +866,70 @@
       line-height: 1.7;
     }
 
-    .timeline {
-      max-width: 980px;
-      margin: 0 auto;
+    .process-row {
       display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
-      position: relative;
     }
 
-    .timeline-step {
-      display: grid;
-      grid-template-columns: 84px 1fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .timeline-number {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .timeline-number span {
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: var(--snp-green);
-      color: var(--snp-yellow);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 20px;
-      box-shadow: 0 14px 30px rgba(0, 61, 40, 0.17);
-      z-index: 2;
-    }
-
-    .timeline-step:not(:last-child) .timeline-number::after {
-      content: "";
-      position: absolute;
-      top: 62px;
-      bottom: -18px;
-      width: 2px;
-      background: repeating-linear-gradient(
-        180deg,
-        rgba(0, 61, 40, 0.32) 0 8px,
-        transparent 8px 14px
-      );
-    }
-
-    .timeline-box {
+    .process-card {
       background: #ffffff;
       border: 1px solid rgba(0, 61, 40, 0.1);
-      border-radius: 16px;
-      padding: 22px 24px;
-      display: grid;
-      grid-template-columns: 46px 1fr;
-      gap: 15px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.045);
+      border-radius: 18px;
+      padding: 26px 22px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.045);
+      position: relative;
+      overflow: hidden;
     }
 
-    .timeline-box i {
-      width: 46px;
-      height: 46px;
+    .process-card::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      color: rgba(0, 61, 40, 0.08);
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .process-card i {
+      position: relative;
+      z-index: 2;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
-      background: rgba(0, 61, 40, 0.09);
-      color: var(--snp-green);
+      background: var(--snp-green);
+      color: #ffffff;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 18px;
+      box-shadow: 0 14px 30px rgba(0, 61, 40, 0.15);
     }
 
-    .timeline-box svg {
-      width: 22px;
-      height: 22px;
+    .process-card svg {
+      width: 26px;
+      height: 26px;
       stroke-width: 2.2;
     }
 
-    .timeline-box h3 {
-      margin: 0 0 6px;
+    .process-card h3 {
+      position: relative;
+      z-index: 2;
+      margin: 0 0 9px;
       color: var(--snp-text);
-      font-size: 17px;
-      text-transform: uppercase;
+      font-size: 15px;
       line-height: 1.2;
+      text-transform: uppercase;
     }
 
-    .timeline-box p {
+    .process-card p {
+      position: relative;
+      z-index: 2;
       margin: 0;
       color: var(--snp-muted);
-      font-size: 13.8px;
+      font-size: 13.5px;
       line-height: 1.55;
     }
 
@@ -1007,25 +1036,38 @@
         max-width: 188px;
       }
 
-      .services-hero-grid {
+      .services-hero-inner {
         grid-template-columns: 1fr;
       }
 
-      .hero-service-panel {
+      .service-summary-card {
         max-width: 560px;
       }
 
-      .service-nav {
+      .service-tabs {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .service-detail {
-        grid-template-columns: 300px 1fr;
+      .service-block,
+      .service-block:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+
+      .service-block:nth-child(even) .service-photo {
+        order: 0;
+      }
+
+      .service-photo {
+        min-height: 270px;
       }
 
       .included-grid,
-      .fit-grid {
+      .selection-grid {
         grid-template-columns: 1fr;
+      }
+
+      .process-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -1132,11 +1174,11 @@
         padding: 68px 0 78px;
       }
 
-      .hero-copybox h1 {
+      .services-hero h1 {
         font-size: clamp(46px, 13vw, 74px);
       }
 
-      .hero-copybox p {
+      .services-hero p {
         font-size: 16px;
       }
 
@@ -1146,48 +1188,34 @@
         font-size: 12.5px;
       }
 
-      .service-nav-wrap {
+      .service-tabs-wrap {
         margin-top: 22px;
       }
 
-      .service-nav {
+      .service-tabs {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         box-shadow: 0 12px 34px rgba(0, 0, 0, 0.09);
       }
 
-      .section-split-head {
+      .split-head {
         grid-template-columns: 1fr;
         gap: 18px;
       }
 
-      .service-detail {
-        grid-template-columns: 1fr;
+      .services-intro {
+        padding: 58px 0 28px;
       }
 
-      .service-detail-img {
-        min-height: 230px;
+      .service-showcase {
+        padding: 28px 0 62px;
       }
 
-      .service-detail-content {
-        grid-template-columns: 1fr;
-        gap: 16px;
+      .service-content {
+        padding: 32px 26px;
       }
 
       .included-cards {
         grid-template-columns: 1fr;
-      }
-
-      .timeline-step {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .timeline-number {
-        justify-content: flex-start;
-      }
-
-      .timeline-step:not(:last-child) .timeline-number::after {
-        display: none;
       }
 
       .quote-ready-row {
@@ -1254,15 +1282,15 @@
     }
 
     @media (max-width: 520px) {
-      .hero-copybox .eyebrow {
+      .services-eyebrow {
         font-size: 12px;
       }
 
-      .hero-copybox h1 {
-        font-size: 45px;
+      .services-hero h1 {
+        font-size: 44px;
       }
 
-      .hero-copybox p {
+      .services-hero p {
         font-size: 15px;
         line-height: 1.52;
       }
@@ -1278,50 +1306,42 @@
         font-size: 12.5px;
       }
 
-      .hero-service-panel {
-        padding: 16px;
+      .service-summary-card {
+        padding: 20px;
       }
 
-      .hero-panel-img {
-        height: 190px;
-      }
-
-      .service-nav {
+      .service-tabs {
         grid-template-columns: 1fr;
       }
 
-      .service-overview {
-        padding: 54px 0 36px;
-      }
-
-      .section-split-head h2,
+      .split-head h2,
       .included-copy h2,
-      .fit-copy h2,
-      .timeline-head h2,
+      .process-head h2,
+      .selection-copy h2,
       .quote-ready h2 {
         font-size: 34px;
       }
 
-      .service-detail h3 {
-        font-size: 24px;
+      .service-title-row {
+        grid-template-columns: 1fr;
       }
 
-      .service-detail-content {
-        padding: 26px 22px 24px;
+      .service-content {
+        padding: 28px 22px;
       }
 
       .included-section,
-      .fit-section,
-      .timeline-section,
+      .selection-section,
+      .process-section,
       .quote-ready {
         padding: 56px 0;
       }
 
-      .fit-card {
+      .selection-card {
         padding: 26px 22px;
       }
 
-      .timeline-box {
+      .process-row {
         grid-template-columns: 1fr;
       }
 
@@ -1447,12 +1467,12 @@
   </header>
 
   <main class="services-page">
-    <section class="services-hero">
-      <div class="container services-hero-grid">
-        <div class="hero-copybox">
-          <div class="eyebrow">Services</div>
-          <h1>Shade systems made for <span>your space.</span></h1>
-          <p>We handle custom shade design, material supply, structure planning, and installation for residential, commercial, school, resort, and specialty projects.</p>
+    <section class="services-hero on-dark">
+      <div class="container services-hero-inner">
+        <div class="services-hero-copy">
+          <div class="services-eyebrow">Sunshade Services</div>
+          <h1>Practical shade, <span>clean installation.</span></h1>
+          <p>We design, supply, and install custom sunshade net systems for homes, schools, car parks, resorts, commercial spaces, and special outdoor structures.</p>
 
           <div class="hero-buttons">
             <a class="btn btn-yellow" href="request-quote.html">
@@ -1467,27 +1487,22 @@
           </div>
         </div>
 
-        <aside class="hero-service-panel">
-          <div class="hero-panel-img"></div>
+        <aside class="service-summary-card">
+          <h2>Service Coverage</h2>
 
-          <div class="hero-panel-title">
-            <i data-lucide="shield-check"></i>
-            <span>Designed for heat, rain, and outdoor use</span>
-          </div>
-
-          <ul class="hero-panel-list">
-            <li><i data-lucide="check"></i> Site-based recommendation</li>
-            <li><i data-lucide="check"></i> Custom measurements and layout</li>
-            <li><i data-lucide="check"></i> Material and structure planning</li>
-            <li><i data-lucide="check"></i> Professional installation support</li>
+          <ul class="service-summary-list">
+            <li><i data-lucide="ruler"></i><span>Custom measurements and layout planning</span></li>
+            <li><i data-lucide="layers"></i><span>Shade net supply and material selection</span></li>
+            <li><i data-lucide="construction"></i><span>Frame and structure recommendations</span></li>
+            <li><i data-lucide="hard-hat"></i><span>Professional installation and finishing</span></li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <div class="service-nav-wrap">
+    <div class="service-tabs-wrap">
       <div class="container">
-        <div class="service-nav">
+        <div class="service-tabs">
           <a href="#residential"><i data-lucide="home"></i>Residential</a>
           <a href="#carpark"><i data-lucide="car"></i>Car Park</a>
           <a href="#school"><i data-lucide="school"></i>School</a>
@@ -1498,153 +1513,169 @@
       </div>
     </div>
 
-    <section class="service-overview">
+    <section class="services-intro">
       <div class="container">
-        <div class="section-split-head">
+        <div class="split-head">
           <div>
-            <div class="kicker">Our Service Range</div>
-            <h2>Not just shade cloth. A complete outdoor shade solution.</h2>
+            <div class="kicker">What We Offer</div>
+            <h2>Different spaces need different shade solutions.</h2>
           </div>
 
-          <p>Every space needs a different approach. Some need simple net supply, some need stronger framing, and some need a more polished shade structure for guests, students, cars, or outdoor seating areas.</p>
+          <p>Instead of forcing one design into every project, we recommend a shade setup based on the actual space, sun exposure, usage, material needs, and structure requirements.</p>
         </div>
+      </div>
+    </section>
 
-        <div class="service-detail-list">
-          <article class="service-detail" id="residential">
-            <div class="service-detail-img" style="--img:url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85')"></div>
-            <div class="service-detail-content">
-              <div class="service-mark"><i data-lucide="home"></i></div>
-              <div>
+    <section class="service-showcase">
+      <div class="container">
+        <div class="service-stack">
+          <article class="service-block" id="residential">
+            <div class="service-photo" style="--img:url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85')"></div>
+
+            <div class="service-content">
+              <div class="service-title-row">
+                <div class="service-mark"><i data-lucide="home"></i></div>
                 <h3>Home / Residential Shade</h3>
-                <p>For patios, gardens, terraces, balconies, outdoor kitchens, and family areas that need a cooler and more usable outdoor space.</p>
-
-                <div class="service-tags">
-                  <span>Patios</span>
-                  <span>Gardens</span>
-                  <span>Balconies</span>
-                  <span>Outdoor seating</span>
-                </div>
-
-                <a class="small-link" href="request-quote.html">
-                  Request this service
-                  <i data-lucide="arrow-right"></i>
-                </a>
               </div>
+
+              <p>For patios, gardens, balconies, outdoor kitchens, terraces, and family spaces that need better comfort during hot and sunny days.</p>
+
+              <div class="service-meta">
+                <span>Patios</span>
+                <span>Gardens</span>
+                <span>Balconies</span>
+                <span>Outdoor seating</span>
+              </div>
+
+              <a class="small-link" href="request-quote.html">
+                Request this service
+                <i data-lucide="arrow-right"></i>
+              </a>
             </div>
           </article>
 
-          <article class="service-detail" id="carpark">
-            <div class="service-detail-img" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_22%20PM%20%281%29.png')"></div>
-            <div class="service-detail-content">
-              <div class="service-mark"><i data-lucide="car"></i></div>
-              <div>
+          <article class="service-block" id="carpark">
+            <div class="service-photo" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_22%20PM%20%281%29.png')"></div>
+
+            <div class="service-content">
+              <div class="service-title-row">
+                <div class="service-mark"><i data-lucide="car"></i></div>
                 <h3>Car Park Shade</h3>
-                <p>Reduce direct sunlight on parked vehicles and improve parking comfort for residential driveways, business parking, and open-lot spaces.</p>
-
-                <div class="service-tags">
-                  <span>Driveways</span>
-                  <span>Carports</span>
-                  <span>Commercial parking</span>
-                  <span>Open lots</span>
-                </div>
-
-                <a class="small-link" href="request-quote.html">
-                  Request this service
-                  <i data-lucide="arrow-right"></i>
-                </a>
               </div>
+
+              <p>Protect parked vehicles from direct heat while making parking spaces more comfortable and visually cleaner for residential or business properties.</p>
+
+              <div class="service-meta">
+                <span>Carports</span>
+                <span>Driveways</span>
+                <span>Open lots</span>
+                <span>Commercial parking</span>
+              </div>
+
+              <a class="small-link" href="request-quote.html">
+                Request this service
+                <i data-lucide="arrow-right"></i>
+              </a>
             </div>
           </article>
 
-          <article class="service-detail" id="school">
-            <div class="service-detail-img" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_23%20PM%20%283%29.png')"></div>
-            <div class="service-detail-content">
-              <div class="service-mark"><i data-lucide="school"></i></div>
-              <div>
+          <article class="service-block" id="school">
+            <div class="service-photo" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_23%20PM%20%283%29.png')"></div>
+
+            <div class="service-content">
+              <div class="service-title-row">
+                <div class="service-mark"><i data-lucide="school"></i></div>
                 <h3>School / Playground Shade</h3>
-                <p>Shade systems for playgrounds, activity zones, waiting areas, walkways, and outdoor school spaces where safety and comfort matter.</p>
-
-                <div class="service-tags">
-                  <span>Playgrounds</span>
-                  <span>Walkways</span>
-                  <span>Activity areas</span>
-                  <span>Waiting zones</span>
-                </div>
-
-                <a class="small-link" href="request-quote.html">
-                  Request this service
-                  <i data-lucide="arrow-right"></i>
-                </a>
               </div>
+
+              <p>Create safer and cooler outdoor areas for students, teachers, playgrounds, waiting areas, walkways, and activity zones.</p>
+
+              <div class="service-meta">
+                <span>Playgrounds</span>
+                <span>Walkways</span>
+                <span>Activity areas</span>
+                <span>Waiting zones</span>
+              </div>
+
+              <a class="small-link" href="request-quote.html">
+                Request this service
+                <i data-lucide="arrow-right"></i>
+              </a>
             </div>
           </article>
 
-          <article class="service-detail" id="commercial">
-            <div class="service-detail-img" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_23%20PM%20%284%29.png')"></div>
-            <div class="service-detail-content">
-              <div class="service-mark"><i data-lucide="building-2"></i></div>
-              <div>
+          <article class="service-block" id="commercial">
+            <div class="service-photo" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_23%20PM%20%284%29.png')"></div>
+
+            <div class="service-content">
+              <div class="service-title-row">
+                <div class="service-mark"><i data-lucide="building-2"></i></div>
                 <h3>Resort / Commercial Shade</h3>
-                <p>For resorts, restaurants, cafés, poolsides, lounges, and business areas that need a polished shade solution for guests and customers.</p>
-
-                <div class="service-tags">
-                  <span>Resorts</span>
-                  <span>Poolside</span>
-                  <span>Restaurants</span>
-                  <span>Commercial spaces</span>
-                </div>
-
-                <a class="small-link" href="request-quote.html">
-                  Request this service
-                  <i data-lucide="arrow-right"></i>
-                </a>
               </div>
+
+              <p>Premium-looking shade solutions for resorts, restaurants, cafés, lounges, poolsides, walkways, and business outdoor spaces.</p>
+
+              <div class="service-meta">
+                <span>Resorts</span>
+                <span>Restaurants</span>
+                <span>Poolside</span>
+                <span>Commercial spaces</span>
+              </div>
+
+              <a class="small-link" href="request-quote.html">
+                Request this service
+                <i data-lucide="arrow-right"></i>
+              </a>
             </div>
           </article>
 
-          <article class="service-detail" id="custom">
-            <div class="service-detail-img" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_24%20PM%20%285%29.png')"></div>
-            <div class="service-detail-content">
-              <div class="service-mark"><i data-lucide="construction"></i></div>
-              <div>
+          <article class="service-block" id="custom">
+            <div class="service-photo" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_24%20PM%20%285%29.png')"></div>
+
+            <div class="service-content">
+              <div class="service-title-row">
+                <div class="service-mark"><i data-lucide="construction"></i></div>
                 <h3>Custom Structure</h3>
-                <p>For projects that need a specific frame, unique layout, custom shape, bamboo-style build, steel support, or special design requirement.</p>
-
-                <div class="service-tags">
-                  <span>Steel frames</span>
-                  <span>Bamboo style</span>
-                  <span>Custom layouts</span>
-                  <span>Special builds</span>
-                </div>
-
-                <a class="small-link" href="request-quote.html">
-                  Request this service
-                  <i data-lucide="arrow-right"></i>
-                </a>
               </div>
+
+              <p>For spaces that need a unique shade shape, steel frame, bamboo-style structure, special support layout, or customized outdoor shade design.</p>
+
+              <div class="service-meta">
+                <span>Steel frames</span>
+                <span>Bamboo style</span>
+                <span>Special layout</span>
+                <span>Custom design</span>
+              </div>
+
+              <a class="small-link" href="request-quote.html">
+                Request this service
+                <i data-lucide="arrow-right"></i>
+              </a>
             </div>
           </article>
 
-          <article class="service-detail" id="supply">
-            <div class="service-detail-img" style="--img:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=85')"></div>
-            <div class="service-detail-content">
-              <div class="service-mark"><i data-lucide="package-check"></i></div>
-              <div>
+          <article class="service-block" id="supply">
+            <div class="service-photo" style="--img:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=85')"></div>
+
+            <div class="service-content">
+              <div class="service-title-row">
+                <div class="service-mark"><i data-lucide="package-check"></i></div>
                 <h3>Supply Only</h3>
-                <p>For clients who only need sunshade net materials in different sizes, colors, and specifications without full installation service.</p>
-
-                <div class="service-tags">
-                  <span>Shade net supply</span>
-                  <span>Different sizes</span>
-                  <span>Material options</span>
-                  <span>Fast delivery</span>
-                </div>
-
-                <a class="small-link" href="request-quote.html">
-                  Request this service
-                  <i data-lucide="arrow-right"></i>
-                </a>
               </div>
+
+              <p>For clients who only need shade net materials in different sizes, densities, colors, and specifications without full installation service.</p>
+
+              <div class="service-meta">
+                <span>Shade net supply</span>
+                <span>Different sizes</span>
+                <span>Material options</span>
+                <span>Fast delivery</span>
+              </div>
+
+              <a class="small-link" href="request-quote.html">
+                Request this service
+                <i data-lucide="arrow-right"></i>
+              </a>
             </div>
           </article>
         </div>
@@ -1655,123 +1686,104 @@
       <div class="container included-grid">
         <div class="included-copy">
           <div class="kicker">What’s Included</div>
-          <h2>From checking the space to finishing the shade.</h2>
-          <p>We help make the project easier by guiding the client through the important parts before installation begins.</p>
+          <h2>A complete service from planning to finishing.</h2>
+          <p>We help clients avoid guesswork by checking the space, recommending the right approach, and handling the details needed for a cleaner shade installation.</p>
         </div>
 
         <div class="included-cards">
           <div class="included-card">
             <i data-lucide="map"></i>
             <h3>Site Planning</h3>
-            <p>We review the area, usage, exposure, and best shade direction for the project.</p>
+            <p>We review the space, usage, sun exposure, and best shade direction.</p>
           </div>
 
           <div class="included-card">
             <i data-lucide="ruler"></i>
             <h3>Measurement</h3>
-            <p>We work with proper measurements to avoid poor fitting and awkward final layouts.</p>
+            <p>We work with proper measurements for better fitting and cleaner layouts.</p>
           </div>
 
           <div class="included-card">
             <i data-lucide="layers"></i>
             <h3>Material Options</h3>
-            <p>We recommend suitable shade materials based on durability, budget, and purpose.</p>
+            <p>We recommend suitable shade materials based on purpose and durability.</p>
           </div>
 
           <div class="included-card">
             <i data-lucide="wrench"></i>
             <h3>Installation</h3>
-            <p>We install with attention to support, tension, finishing, and overall safety.</p>
+            <p>We handle the structure, tension, support, and final finishing.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="fit-section">
-      <div class="container fit-grid">
-        <div class="fit-copy">
+    <section class="selection-section">
+      <div class="container selection-grid">
+        <div class="selection-copy">
           <div class="kicker">Best Fit Guide</div>
           <h2>Not sure what service you need?</h2>
-          <p>Send photos, measurements, or project details and we’ll help identify the best shade setup for your area.</p>
+          <p>Send your photos, measurements, or project details. We’ll help identify which shade setup is best for your area.</p>
 
-          <ul class="fit-checklist">
-            <li><i data-lucide="check"></i>For homes, start with residential shade or patio shade.</li>
-            <li><i data-lucide="check"></i>For vehicle protection, choose car park shade.</li>
-            <li><i data-lucide="check"></i>For guest spaces, choose resort or commercial shade.</li>
+          <ul class="selection-list">
+            <li><i data-lucide="check"></i>For family outdoor areas, choose residential shade.</li>
+            <li><i data-lucide="check"></i>For vehicles, choose car park shade.</li>
+            <li><i data-lucide="check"></i>For customers or guests, choose commercial shade.</li>
             <li><i data-lucide="check"></i>For unusual shapes or framing needs, choose custom structure.</li>
           </ul>
         </div>
 
-        <div class="fit-card">
-          <h3>Before we quote, prepare these details.</h3>
-          <ul class="fit-card-list">
-            <li><i data-lucide="image"></i>Photos of the area to be shaded</li>
-            <li><i data-lucide="ruler"></i>Estimated length and width of the space</li>
+        <div class="selection-card on-dark">
+          <h3>Prepare these before requesting a quote.</h3>
+
+          <ul class="prep-list">
+            <li><i data-lucide="image"></i>Photos of the area</li>
+            <li><i data-lucide="ruler"></i>Estimated length and width</li>
             <li><i data-lucide="map-pin"></i>Project location</li>
-            <li><i data-lucide="calendar"></i>Target installation schedule</li>
-            <li><i data-lucide="message-square"></i>Any preferred style, color, or structure type</li>
+            <li><i data-lucide="calendar"></i>Target schedule</li>
+            <li><i data-lucide="message-square"></i>Preferred style, color, or structure type</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="timeline-section">
+    <section class="process-section">
       <div class="container">
-        <div class="timeline-head">
+        <div class="process-head">
           <div class="kicker">Project Flow</div>
           <h2>How the service works.</h2>
           <p>A cleaner process helps avoid confusion. Here’s the usual flow from first message to final installation.</p>
         </div>
 
-        <div class="timeline">
-          <div class="timeline-step">
-            <div class="timeline-number"><span>01</span></div>
-            <div class="timeline-box">
-              <i data-lucide="message-circle"></i>
-              <div>
-                <h3>Send Project Details</h3>
-                <p>Tell us the service you need, the location, and the type of space you want to cover.</p>
-              </div>
-            </div>
+        <div class="process-row">
+          <div class="process-card" data-step="01">
+            <i data-lucide="message-circle"></i>
+            <h3>Send Project Details</h3>
+            <p>Tell us the service you need, location, and the type of space you want to cover.</p>
           </div>
 
-          <div class="timeline-step">
-            <div class="timeline-number"><span>02</span></div>
-            <div class="timeline-box">
-              <i data-lucide="clipboard-check"></i>
-              <div>
-                <h3>Assessment & Recommendation</h3>
-                <p>We review your space and recommend the most practical shade setup.</p>
-              </div>
-            </div>
+          <div class="process-card" data-step="02">
+            <i data-lucide="clipboard-check"></i>
+            <h3>Assessment</h3>
+            <p>We review your area and recommend the most practical shade setup.</p>
           </div>
 
-          <div class="timeline-step">
-            <div class="timeline-number"><span>03</span></div>
-            <div class="timeline-box">
-              <i data-lucide="file-text"></i>
-              <div>
-                <h3>Quotation & Scope</h3>
-                <p>You receive a quotation based on size, material, structure, and project requirements.</p>
-              </div>
-            </div>
+          <div class="process-card" data-step="03">
+            <i data-lucide="file-text"></i>
+            <h3>Quotation</h3>
+            <p>You receive a quotation based on size, material, structure, and requirements.</p>
           </div>
 
-          <div class="timeline-step">
-            <div class="timeline-number"><span>04</span></div>
-            <div class="timeline-box">
-              <i data-lucide="hard-hat"></i>
-              <div>
-                <h3>Build & Installation</h3>
-                <p>Once approved, our team handles the installation and final finishing of the shade system.</p>
-              </div>
-            </div>
+          <div class="process-card" data-step="04">
+            <i data-lucide="hard-hat"></i>
+            <h3>Installation</h3>
+            <p>Our team handles the installation and final finishing of the shade system.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="quote-ready">
+    <section class="quote-ready on-dark">
       <div class="container quote-ready-row">
         <div>
           <h2>Let’s plan the <span>right shade</span> for your space.</h2>
