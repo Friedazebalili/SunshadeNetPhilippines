@@ -344,27 +344,27 @@
       border-bottom: 2px solid var(--snp-yellow);
     }
 
-    /* PROCESS SECTION — MATCHES YOUR SAMPLE */
+    /* PROCESS SECTION — CLEAN BALANCED VERSION */
     .section-soft {
-      background: #f6f8f7;
-      padding: 76px 0;
+      background: #f5f8f6;
+      padding: 64px 0;
       border-top: 1px solid rgba(0, 61, 40, 0.06);
       border-bottom: 1px solid rgba(0, 61, 40, 0.06);
     }
 
     .process-grid {
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 48px;
-      align-items: center;
+      grid-template-columns: 300px 1fr;
+      gap: 34px;
+      align-items: stretch;
     }
 
     .process-intro {
       background: #ffffff;
-      padding: 30px 30px 32px;
-      border-radius: 18px;
+      padding: 28px 28px 30px;
+      border-radius: 16px;
       border: 1px solid rgba(0, 61, 40, 0.08);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.055);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.055);
       position: relative;
       overflow: hidden;
     }
@@ -391,22 +391,22 @@
     .process-intro h2 {
       margin: 0 0 16px;
       color: #07150f;
-      font-size: clamp(34px, 3vw, 48px);
-      line-height: 0.95;
+      font-size: clamp(32px, 2.6vw, 44px);
+      line-height: 0.96;
       letter-spacing: -0.035em;
       text-transform: uppercase;
     }
 
     .process-intro p {
       color: #1f2a25;
-      font-size: 15px;
+      font-size: 14.5px;
       line-height: 1.55;
       margin: 0 0 22px;
     }
 
     .process-intro .btn {
-      min-height: 52px;
-      padding-inline: 22px;
+      min-height: 50px;
+      padding-inline: 20px;
       border-radius: 8px;
       background: var(--snp-green);
       color: #ffffff;
@@ -417,62 +417,69 @@
       background: var(--snp-green-dark);
     }
 
-    .process-grid .process-step {
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .process-step {
       position: relative;
       background: #ffffff;
       border: 1px solid rgba(0, 61, 40, 0.08);
-      border-radius: 18px;
-      padding: 30px 22px 26px;
-      min-height: 238px;
+      border-radius: 16px;
+      padding: 28px 20px 26px;
+      min-height: 100%;
       text-align: center;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.055);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.055);
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .process-grid .process-step:hover {
+    .process-step:hover {
       transform: translateY(-5px);
       border-color: rgba(0, 61, 40, 0.18);
       box-shadow: 0 24px 56px rgba(0, 0, 0, 0.09);
     }
 
-    .process-grid .process-step::before {
+    .process-step::before {
       content: "";
       position: absolute;
-      top: 74px;
-      left: -34px;
-      width: 34px;
+      top: 58px;
+      left: -16px;
+      width: 16px;
       height: 2px;
       background: repeating-linear-gradient(
         90deg,
-        rgba(0, 61, 40, 0.5) 0 7px,
-        transparent 7px 13px
+        rgba(0, 61, 40, 0.45) 0 6px,
+        transparent 6px 12px
       );
     }
 
-    .process-grid .process-step:nth-child(2)::before {
+    .process-step:first-child::before {
       display: none;
     }
 
     .process-step .icon {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 24px;
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 18px;
       border-radius: 50%;
       background: rgba(0, 61, 40, 0.06);
       color: var(--snp-green);
       border: 1px solid rgba(0, 61, 40, 0.12);
-      box-shadow: 0 18px 34px rgba(0, 61, 40, 0.08);
+      box-shadow: 0 14px 28px rgba(0, 61, 40, 0.07);
     }
 
     .process-step .icon svg {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       stroke-width: 2;
     }
 
     .process-step strong {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 9px;
       color: #07150f;
       font-size: 13px;
       line-height: 1.25;
@@ -483,7 +490,7 @@
     .process-step strong::before {
       content: attr(data-step);
       display: block;
-      margin-bottom: 9px;
+      margin-bottom: 8px;
       color: var(--snp-yellow);
       font-size: 20px;
       line-height: 1;
@@ -566,14 +573,14 @@
 
       .process-grid {
         grid-template-columns: 1fr;
-        gap: 26px;
+        gap: 22px;
       }
 
       .process-intro {
-        max-width: 540px;
+        max-width: 520px;
       }
 
-      .process-grid .process-step::before {
+      .process-step::before {
         display: none;
       }
     }
@@ -604,6 +611,10 @@
       .feature:nth-child(1),
       .feature:nth-child(2) {
         border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -687,8 +698,8 @@
         max-width: none;
       }
 
-      .process-grid .process-step {
-        min-height: auto;
+      .process-steps {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -720,7 +731,7 @@
       }
 
       .section-soft {
-        padding: 54px 0;
+        padding: 48px 0;
       }
 
       .process-intro {
@@ -962,28 +973,30 @@
         </a>
       </div>
 
-      <div class="process-step">
-        <div class="icon"><i data-lucide="message-circle"></i></div>
-        <strong data-step="01">Send Your Request</strong>
-        <p>Tell us about your project and requirements.</p>
-      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="icon"><i data-lucide="message-circle"></i></div>
+          <strong data-step="01">Send Your Request</strong>
+          <p>Tell us about your project and requirements.</p>
+        </div>
 
-      <div class="process-step">
-        <div class="icon"><i data-lucide="ruler"></i></div>
-        <strong data-step="02">Site Visit / Assessment</strong>
-        <p>We measure the area and recommend the best solution.</p>
-      </div>
+        <div class="process-step">
+          <div class="icon"><i data-lucide="ruler"></i></div>
+          <strong data-step="02">Site Visit / Assessment</strong>
+          <p>We measure the area and recommend the best solution.</p>
+        </div>
 
-      <div class="process-step">
-        <div class="icon"><i data-lucide="clipboard-list"></i></div>
-        <strong data-step="03">Quote & Design</strong>
-        <p>You receive a tailored quotation and design plan.</p>
-      </div>
+        <div class="process-step">
+          <div class="icon"><i data-lucide="clipboard-list"></i></div>
+          <strong data-step="03">Quote & Design</strong>
+          <p>You receive a tailored quotation and design plan.</p>
+        </div>
 
-      <div class="process-step">
-        <div class="icon"><i data-lucide="hard-hat"></i></div>
-        <strong data-step="04">Installation</strong>
-        <p>Our team installs with safety and care.</p>
+        <div class="process-step">
+          <div class="icon"><i data-lucide="hard-hat"></i></div>
+          <strong data-step="04">Installation</strong>
+          <p>Our team installs with safety and care.</p>
+        </div>
       </div>
     </div>
   </section>
