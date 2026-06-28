@@ -11,7 +11,6 @@
     :root {
       --snp-green: #003d28;
       --snp-green-dark: #001f16;
-      --snp-green-deep: #00150f;
       --snp-yellow: #ffc400;
       --snp-text: #07150f;
       --snp-muted: #5c6963;
@@ -140,13 +139,6 @@
     .btn svg {
       width: 17px;
       height: 17px;
-      stroke-width: 2.4;
-      transition: transform 0.25s ease;
-    }
-
-    .small-link svg {
-      width: 15px;
-      height: 15px;
       stroke-width: 2.4;
       transition: transform 0.25s ease;
     }
@@ -588,6 +580,28 @@
       max-width: 640px;
     }
 
+    .form-section-title {
+      grid-column: 1 / -1;
+      margin-top: 10px;
+      padding-top: 8px;
+    }
+
+    .form-section-title h3 {
+      margin: 0 0 7px;
+      color: var(--snp-text);
+      font-size: 18px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .form-section-title p {
+      margin: 0;
+      color: var(--snp-muted);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -641,23 +655,111 @@
       resize: vertical;
     }
 
-    .radio-group {
+    .choice-grid {
+      grid-column: 1 / -1;
       display: grid;
-      gap: 9px;
-      padding: 14px;
-      border: 1px solid rgba(0, 61, 40, 0.12);
-      border-radius: 12px;
-      background: #fbfdfc;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
     }
 
-    .radio-group label {
-      display: flex;
+    .choice-grid.install-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .choice-card {
+      position: relative;
+      min-height: 132px;
+      border: 1px solid rgba(0, 61, 40, 0.12);
+      border-radius: 18px;
+      background: #ffffff;
+      padding: 18px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      overflow: hidden;
+    }
+
+    .choice-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 61, 40, 0.28);
+      box-shadow: 0 16px 34px rgba(0, 61, 40, 0.1);
+    }
+
+    .choice-card input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .choice-card-inner {
+      display: grid;
+      gap: 12px;
+      height: 100%;
+    }
+
+    .choice-card i {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--snp-green);
+      color: #ffffff;
+      display: inline-flex;
       align-items: center;
-      gap: 9px;
+      justify-content: center;
+    }
+
+    .choice-card svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2.4;
+    }
+
+    .choice-card strong {
+      display: block;
+      color: var(--snp-text);
       font-size: 13px;
-      font-weight: 700;
-      color: #263832;
-      text-transform: none;
+      line-height: 1.25;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .choice-card small {
+      display: block;
+      color: var(--snp-muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .choice-card input:checked + .choice-card-inner {
+      position: relative;
+    }
+
+    .choice-card:has(input:checked) {
+      border-color: var(--snp-yellow);
+      background:
+        linear-gradient(180deg, rgba(255, 196, 0, 0.14), rgba(255, 255, 255, 1));
+      box-shadow: inset 0 0 0 2px rgba(255, 196, 0, 0.28), 0 16px 34px rgba(255, 196, 0, 0.12);
+    }
+
+    .choice-card:has(input:checked) i {
+      background: var(--snp-yellow);
+      color: var(--snp-green-dark);
+    }
+
+    .choice-card:has(input:checked)::after {
+      content: "Selected";
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: var(--snp-green);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
     }
 
     .upload-box {
@@ -732,6 +834,8 @@
     .quote-side-card {
       display: grid;
       gap: 18px;
+      position: sticky;
+      top: 120px;
     }
 
     .side-panel {
@@ -753,60 +857,40 @@
       line-height: 1.6;
     }
 
-    .service-pick {
+    .guide-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: grid;
+      gap: 13px;
+    }
+
+    .guide-list li {
+      display: grid;
+      grid-template-columns: 30px 1fr;
       gap: 10px;
+      align-items: start;
+      color: #263832;
+      font-size: 13.5px;
+      line-height: 1.45;
     }
 
-    .service-option {
-      display: grid;
-      grid-template-columns: 42px 1fr 18px;
-      gap: 12px;
-      align-items: center;
-      padding: 15px;
-      border-radius: 14px;
-      background: #ffffff;
-      border: 1px solid rgba(0, 61, 40, 0.1);
-      transition: all 0.25s ease;
-    }
-
-    .service-option:hover {
-      border-color: rgba(0, 61, 40, 0.24);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(0, 61, 40, 0.08);
-    }
-
-    .service-option i {
-      width: 42px;
-      height: 42px;
+    .guide-list i {
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
-      background: var(--snp-green);
-      color: #ffffff;
+      background: rgba(0, 61, 40, 0.1);
+      color: var(--snp-green);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      margin-top: -2px;
     }
 
-    .service-option svg {
-      width: 20px;
-      height: 20px;
-      stroke-width: 2.4;
-    }
-
-    .service-option strong {
-      display: block;
-      color: var(--snp-text);
-      font-size: 13px;
-      line-height: 1.2;
-      text-transform: uppercase;
-    }
-
-    .service-option small {
-      display: block;
-      margin-top: 4px;
-      color: var(--snp-muted);
-      font-size: 12px;
-      line-height: 1.35;
+    .guide-list svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 3;
     }
 
     .benefit-card {
@@ -1121,6 +1205,16 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .choice-grid,
+      .choice-grid.install-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .quote-side-card {
+        position: relative;
+        top: auto;
+      }
+
       .quote-process-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1350,7 +1444,9 @@
         padding: 20px;
       }
 
-      .quote-step-tabs {
+      .quote-step-tabs,
+      .choice-grid,
+      .choice-grid.install-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1614,27 +1710,117 @@
               </select>
             </div>
 
-            <div class="field">
-              <label>Type of Service Needed <span>*</span></label>
-              <select required>
-                <option>Select the service you need</option>
-                <option>Home / Residential Shade</option>
-                <option>Car Park Shade</option>
-                <option>School / Playground Shade</option>
-                <option>Resort / Commercial Shade</option>
-                <option>Custom Structure</option>
-                <option>Supply Only</option>
-              </select>
+            <div class="form-section-title">
+              <h3>What kind of shade project do you need?</h3>
+              <p>Select the project type that best matches your space. This replaces the messy dropdown and makes the form easier to understand.</p>
             </div>
 
-            <div class="field">
-              <label>Do you need installation? <span>*</span></label>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="radio" name="service_type" required>
+                <span class="choice-card-inner">
+                  <i data-lucide="home"></i>
+                  <span>
+                    <strong>Home / Residential</strong>
+                    <small>Patios, gardens, balconies, terraces, and outdoor living areas.</small>
+                  </span>
+                </span>
+              </label>
 
-              <div class="radio-group">
-                <label><input type="radio" name="install" required> Yes, with installation</label>
-                <label><input type="radio" name="install"> No, supply only</label>
-                <label><input type="radio" name="install"> Not sure yet</label>
-              </div>
+              <label class="choice-card">
+                <input type="radio" name="service_type">
+                <span class="choice-card-inner">
+                  <i data-lucide="car"></i>
+                  <span>
+                    <strong>Car Park Shade</strong>
+                    <small>Driveways, carports, open parking lots, and vehicle shade.</small>
+                  </span>
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="service_type">
+                <span class="choice-card-inner">
+                  <i data-lucide="school"></i>
+                  <span>
+                    <strong>School / Playground</strong>
+                    <small>Playgrounds, waiting areas, walkways, and activity spaces.</small>
+                  </span>
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="service_type">
+                <span class="choice-card-inner">
+                  <i data-lucide="building-2"></i>
+                  <span>
+                    <strong>Resort / Commercial</strong>
+                    <small>Restaurants, resorts, cafés, poolside areas, and business spaces.</small>
+                  </span>
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="service_type">
+                <span class="choice-card-inner">
+                  <i data-lucide="construction"></i>
+                  <span>
+                    <strong>Custom Structure</strong>
+                    <small>Steel frame, bamboo style, special shape, or unique layout.</small>
+                  </span>
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="service_type">
+                <span class="choice-card-inner">
+                  <i data-lucide="package-check"></i>
+                  <span>
+                    <strong>Supply Only</strong>
+                    <small>Shade net material only, without installation service.</small>
+                  </span>
+                </span>
+              </label>
+            </div>
+
+            <div class="form-section-title">
+              <h3>Do you need installation?</h3>
+              <p>Choose how you want the project handled. You can still change this later after assessment.</p>
+            </div>
+
+            <div class="choice-grid install-grid">
+              <label class="choice-card">
+                <input type="radio" name="install" required>
+                <span class="choice-card-inner">
+                  <i data-lucide="hard-hat"></i>
+                  <span>
+                    <strong>Yes, with installation</strong>
+                    <small>Best option if you want us to handle the full setup.</small>
+                  </span>
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="install">
+                <span class="choice-card-inner">
+                  <i data-lucide="package"></i>
+                  <span>
+                    <strong>No, supply only</strong>
+                    <small>Choose this if you only need shade net materials.</small>
+                  </span>
+                </span>
+              </label>
+
+              <label class="choice-card">
+                <input type="radio" name="install">
+                <span class="choice-card-inner">
+                  <i data-lucide="circle-help"></i>
+                  <span>
+                    <strong>Not sure yet</strong>
+                    <small>We can recommend the best option after checking your space.</small>
+                  </span>
+                </span>
+              </label>
             </div>
 
             <div class="field full">
@@ -1677,54 +1863,16 @@
 
         <aside class="quote-side-card">
           <div class="side-panel">
-            <h3>Choose Your Service</h3>
+            <h3>Quote Guide</h3>
+            <p>To make your quotation more accurate, prepare these details before sending your request.</p>
 
-            <div class="service-pick">
-              <label class="service-option">
-                <i data-lucide="home"></i>
-                <div>
-                  <strong>Home / Residential Shade</strong>
-                  <small>Patios, gardens, balconies, and outdoor spaces.</small>
-                </div>
-                <input type="radio" name="service_pick">
-              </label>
-
-              <label class="service-option">
-                <i data-lucide="car"></i>
-                <div>
-                  <strong>Car Park Shade</strong>
-                  <small>Protect vehicles from sun and heat.</small>
-                </div>
-                <input type="radio" name="service_pick">
-              </label>
-
-              <label class="service-option">
-                <i data-lucide="school"></i>
-                <div>
-                  <strong>School / Playground Shade</strong>
-                  <small>Shaded areas for outdoor activities.</small>
-                </div>
-                <input type="radio" name="service_pick">
-              </label>
-
-              <label class="service-option">
-                <i data-lucide="building-2"></i>
-                <div>
-                  <strong>Resort / Commercial Shade</strong>
-                  <small>Poolsides, restaurants, walkways, and more.</small>
-                </div>
-                <input type="radio" name="service_pick">
-              </label>
-
-              <label class="service-option">
-                <i data-lucide="construction"></i>
-                <div>
-                  <strong>Custom Structure</strong>
-                  <small>Bamboo, steel frame, or unique designs.</small>
-                </div>
-                <input type="radio" name="service_pick">
-              </label>
-            </div>
+            <ul class="guide-list">
+              <li><i data-lucide="check"></i>Photos of the area you want to cover.</li>
+              <li><i data-lucide="check"></i>Estimated length, width, and height.</li>
+              <li><i data-lucide="check"></i>Your project location or city.</li>
+              <li><i data-lucide="check"></i>Preferred shade color or design style.</li>
+              <li><i data-lucide="check"></i>Target schedule for installation or delivery.</li>
+            </ul>
           </div>
 
           <div class="benefit-card on-dark">
