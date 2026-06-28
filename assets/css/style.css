@@ -39,7 +39,7 @@ body {
   font-size: 16px;
   line-height: 1.55;
   overflow-x: hidden;
-  scroll-padding-top: 112px;
+  scroll-padding-top: 84px;
 }
 
 a {
@@ -100,15 +100,17 @@ img {
   width: 100% !important;
   background: #ffffff !important;
   color: #07150f !important;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07) !important;
 }
 
 .header-inner {
-  min-height: 108px !important;
+  min-height: 82px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between;
-  gap: 34px !important;
+  gap: 30px !important;
 }
 
 .logo {
@@ -119,8 +121,8 @@ img {
 }
 
 .logo img {
-  width: 220px !important;
-  max-width: 220px !important;
+  width: 200px !important;
+  max-width: 200px !important;
   height: auto !important;
   display: block !important;
   object-fit: contain !important;
@@ -1610,17 +1612,26 @@ img {
 }
 
 @media (max-width: 1180px) {
+  body {
+    scroll-padding-top: 78px;
+  }
+
   .nav {
     gap: 18px;
   }
 
+  .header-inner {
+    min-height: 76px !important;
+    gap: 22px !important;
+  }
+
   .header-actions .btn {
-    padding: 14px 16px;
+    padding: 13px 15px;
   }
 
   .logo img {
-    width: 188px !important;
-    max-width: 188px !important;
+    width: 178px !important;
+    max-width: 178px !important;
   }
 
   .cards-6,
@@ -1659,7 +1670,7 @@ img {
 
 @media (max-width: 900px) {
   body {
-    scroll-padding-top: 84px;
+    scroll-padding-top: 72px;
   }
 
   .container {
@@ -1677,13 +1688,13 @@ img {
   }
 
   .header-inner {
-    min-height: 84px !important;
-    padding: 0;
+    min-height: 72px !important;
+    padding: 0 !important;
   }
 
   .logo img {
-    width: 165px !important;
-    max-width: 165px !important;
+    width: 155px !important;
+    max-width: 155px !important;
   }
 
   .mobile-toggle {
