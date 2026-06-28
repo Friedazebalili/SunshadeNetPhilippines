@@ -104,7 +104,7 @@ img {
 }
 
 .header-inner {
-  min-height: 64px !important;
+  min-height: 30px !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   display: flex !important;
