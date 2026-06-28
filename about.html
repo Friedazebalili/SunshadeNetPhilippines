@@ -1,60 +1,1772 @@
 <!doctype html>
-<html lang='en'>
+<html lang="en">
 <head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | Sunshade Net Philippines</title>
-  <meta name='description' content='Premium sunshade net design, supply, and installation across the Philippines.'>
-  <link rel='stylesheet' href='assets/css/style.css'>
+  <meta name="description" content="Learn about Sunshade Net Philippines, a provider of custom sunshade net design, supply, fabrication, and installation services across the Philippines.">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    :root {
+      --snp-green: #003d28;
+      --snp-green-dark: #001f16;
+      --snp-green-deep: #00150f;
+      --snp-yellow: #ffc400;
+      --snp-text: #07150f;
+      --snp-muted: #5c6963;
+      --snp-soft: #f5f8f6;
+      --snp-border: rgba(0, 61, 40, 0.12);
+      --snp-shadow: 0 18px 46px rgba(0, 0, 0, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      scroll-padding-top: 112px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      width: 220px;
+      max-width: 220px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-inner {
+      min-height: 108px;
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .header-actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .top-location,
+    .footer-contact-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .top-location i,
+    .footer-contact-line i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+      flex-shrink: 0;
+      color: var(--snp-green);
+    }
+
+    .top-location svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2.7;
+    }
+
+    .footer-contact-line svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2.5;
+    }
+
+    .footer-contact-line i {
+      color: var(--snp-yellow);
+    }
+
+    .btn,
+    .small-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .btn {
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      border: 1px solid transparent;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn i,
+    .small-link i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+      flex-shrink: 0;
+    }
+
+    .btn svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 2.4;
+      transition: transform 0.25s ease;
+    }
+
+    .small-link svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2.4;
+      transition: transform 0.25s ease;
+    }
+
+    .btn:hover svg,
+    .small-link:hover svg {
+      transform: translateX(3px);
+    }
+
+    .btn-yellow {
+      background: var(--snp-yellow);
+      color: var(--snp-green-dark);
+      border-color: var(--snp-yellow);
+      box-shadow: 0 14px 30px rgba(255, 196, 0, 0.22);
+    }
+
+    .btn-yellow:hover {
+      background: #ffd94a;
+      border-color: #ffd94a;
+      color: var(--snp-green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(255, 196, 0, 0.28);
+    }
+
+    .btn-dark {
+      background: var(--snp-green);
+      color: #ffffff;
+      border-color: var(--snp-green);
+      box-shadow: 0 14px 30px rgba(0, 61, 40, 0.18);
+    }
+
+    .btn-dark:hover {
+      background: var(--snp-green-dark);
+      border-color: var(--snp-green-dark);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--snp-green);
+      border-color: rgba(0, 61, 40, 0.36);
+    }
+
+    .btn-outline:hover {
+      background: var(--snp-green);
+      color: #ffffff;
+      border-color: var(--snp-green);
+      transform: translateY(-2px);
+    }
+
+    .on-dark .btn-outline,
+    .about-hero .btn-outline,
+    .about-cta .btn-outline {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.62);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .on-dark .btn-outline:hover,
+    .about-hero .btn-outline:hover,
+    .about-cta .btn-outline:hover {
+      color: var(--snp-green-dark);
+      border-color: #ffffff;
+      background: #ffffff;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-icons a {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.25s ease;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .social-icons a svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+      display: block;
+    }
+
+    .social-icons a:hover {
+      background: var(--snp-yellow);
+      color: var(--snp-green-dark);
+      border-color: var(--snp-yellow);
+      transform: translateY(-2px);
+    }
+
+    .topbar .social-icons {
+      gap: 7px;
+    }
+
+    .topbar .social-icons a {
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: transparent;
+      color: #07150f;
+    }
+
+    .topbar .social-icons a svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .topbar .social-icons a:hover {
+      background: rgba(7, 21, 15, 0.12);
+      color: #07150f;
+      transform: translateY(-1px);
+    }
+
+    .about-page {
+      background: #ffffff;
+      color: var(--snp-text);
+    }
+
+    .about-hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(0, 21, 15, 0.98) 0%, rgba(0, 45, 30, 0.91) 48%, rgba(0, 61, 40, 0.58) 100%),
+        url("https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_23%20PM%20%284%29.png");
+      background-size: cover;
+      background-position: center right;
+      color: #ffffff;
+      padding: 92px 0 102px;
+    }
+
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 46px 46px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .about-hero::after {
+      content: "";
+      position: absolute;
+      right: -170px;
+      top: -190px;
+      width: 470px;
+      height: 470px;
+      border-radius: 50%;
+      background: rgba(255, 196, 0, 0.14);
+      pointer-events: none;
+    }
+
+    .about-hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 390px;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .about-hero-copy {
+      max-width: 760px;
+    }
+
+    .about-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--snp-yellow);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .about-eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--snp-yellow);
+      border-radius: 999px;
+    }
+
+    .about-hero h1 {
+      margin: 0 0 24px;
+      color: #ffffff;
+      font-size: clamp(52px, 6.2vw, 94px);
+      line-height: 0.91;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+    }
+
+    .about-hero h1 span {
+      color: var(--snp-yellow);
+    }
+
+    .about-hero p {
+      margin: 0 0 34px;
+      max-width: 630px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      line-height: 1.58;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .about-summary-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 22px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.26);
+    }
+
+    .about-summary-card h2 {
+      margin: 0 0 16px;
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+    }
+
+    .about-summary-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .about-summary-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 13.5px;
+      line-height: 1.4;
+    }
+
+    .about-summary-list i {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--snp-yellow);
+      color: var(--snp-green-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-summary-list svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 2.6;
+    }
+
+    .about-tabs-wrap {
+      margin-top: -36px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .about-tabs {
+      background: #ffffff;
+      border: 1px solid rgba(0, 61, 40, 0.1);
+      border-radius: 18px;
+      box-shadow: 0 22px 58px rgba(0, 0, 0, 0.13);
+      padding: 12px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .about-tabs a {
+      min-height: 78px;
+      border-radius: 12px;
+      background: #f8faf9;
+      border: 1px solid rgba(0, 61, 40, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      color: var(--snp-text);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
+
+    .about-tabs a i {
+      color: var(--snp-green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-tabs a svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.2;
+    }
+
+    .about-tabs a:hover {
+      background: var(--snp-green);
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(0, 61, 40, 0.18);
+    }
+
+    .about-tabs a:hover i {
+      color: var(--snp-yellow);
+    }
+
+    .story-section {
+      padding: 86px 0;
+      background:
+        radial-gradient(circle at top right, rgba(255, 196, 0, 0.12), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-section::before {
+      content: "";
+      position: absolute;
+      left: -120px;
+      bottom: -160px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(0, 61, 40, 0.055);
+      pointer-events: none;
+    }
+
+    .story-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+      gap: 58px;
+      align-items: center;
+    }
+
+    .kicker {
+      color: var(--snp-green);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .story-copy h2,
+    .values-head h2,
+    .stats-head h2,
+    .coverage-copy h2,
+    .process-head h2,
+    .about-cta h2 {
+      margin: 0;
+      color: var(--snp-text);
+      font-size: clamp(34px, 4vw, 62px);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .story-copy h2::after {
+      content: "";
+      width: 92px;
+      height: 6px;
+      display: block;
+      margin-top: 28px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--snp-yellow), rgba(255, 196, 0, 0));
+    }
+
+    .story-copy p {
+      margin: 22px 0 0;
+      color: var(--snp-muted);
+      font-size: 15.5px;
+      line-height: 1.72;
+    }
+
+    .story-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 61, 40, 0.12);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: 0 24px 60px rgba(0, 61, 40, 0.09);
+    }
+
+    .story-media-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 14px;
+    }
+
+    .story-photo {
+      min-height: 430px;
+      border-radius: 18px;
+      background-image: var(--img);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0, 31, 22, 0.38), transparent 68%);
+    }
+
+    .story-photo-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .story-photo.small {
+      min-height: 208px;
+    }
+
+    .values-section {
+      padding: 82px 0;
+      background: #ffffff;
+    }
+
+    .values-head {
+      max-width: 760px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .values-head p {
+      margin: 18px auto 0;
+      max-width: 590px;
+      color: var(--snp-muted);
+      font-size: 15.5px;
+      line-height: 1.7;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .value-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 61, 40, 0.1);
+      border-radius: 18px;
+      padding: 24px 20px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.045);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 61, 40, 0.22);
+      box-shadow: 0 22px 46px rgba(0, 0, 0, 0.09);
+    }
+
+    .value-card i {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--snp-green);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .value-card svg {
+      width: 23px;
+      height: 23px;
+      stroke-width: 2.2;
+    }
+
+    .value-card h3 {
+      margin: 0 0 8px;
+      color: var(--snp-text);
+      font-size: 16px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .value-card p {
+      margin: 0;
+      color: var(--snp-muted);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    .stats-section {
+      padding: 76px 0;
+      background:
+        linear-gradient(135deg, rgba(0, 61, 40, 0.98), rgba(0, 24, 17, 0.98));
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-section::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(255, 196, 0, 0.12);
+      right: -170px;
+      top: -210px;
+    }
+
+    .stats-head {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .stats-head .kicker {
+      color: var(--snp-yellow);
+    }
+
+    .stats-head h2 {
+      color: #ffffff;
+    }
+
+    .stats-head p {
+      margin: 16px auto 0;
+      max-width: 590px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 15.5px;
+      line-height: 1.65;
+    }
+
+    .stats-row {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      padding: 26px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-card b {
+      display: block;
+      color: var(--snp-yellow);
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .stat-card span {
+      display: block;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 1.25;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .stat-card small {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+
+    .coverage-section {
+      padding: 82px 0;
+      background: var(--snp-soft);
+    }
+
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .coverage-copy p {
+      margin: 20px 0 0;
+      color: var(--snp-muted);
+      font-size: 15.5px;
+      line-height: 1.7;
+    }
+
+    .coverage-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .coverage-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 61, 40, 0.1);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.045);
+    }
+
+    .coverage-card i {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--snp-green);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .coverage-card svg {
+      width: 23px;
+      height: 23px;
+      stroke-width: 2.2;
+    }
+
+    .coverage-card h3 {
+      margin: 0 0 8px;
+      color: var(--snp-text);
+      font-size: 16px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .coverage-card p {
+      margin: 0;
+      color: var(--snp-muted);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    .process-section {
+      padding: 78px 0;
+      background: #ffffff;
+    }
+
+    .process-head {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .process-head p {
+      margin: 18px auto 0;
+      max-width: 570px;
+      color: var(--snp-muted);
+      font-size: 15.5px;
+      line-height: 1.7;
+    }
+
+    .process-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .process-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 61, 40, 0.1);
+      border-radius: 18px;
+      padding: 26px 22px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.045);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-card::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      color: rgba(0, 61, 40, 0.08);
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .process-card i {
+      position: relative;
+      z-index: 2;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--snp-green);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      box-shadow: 0 14px 30px rgba(0, 61, 40, 0.15);
+    }
+
+    .process-card svg {
+      width: 26px;
+      height: 26px;
+      stroke-width: 2.2;
+    }
+
+    .process-card h3 {
+      position: relative;
+      z-index: 2;
+      margin: 0 0 9px;
+      color: var(--snp-text);
+      font-size: 15px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .process-card p {
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      color: var(--snp-muted);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .about-cta {
+      background:
+        linear-gradient(135deg, rgba(0, 61, 40, 0.98), rgba(0, 24, 17, 0.98));
+      color: #ffffff;
+      padding: 76px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-cta::before {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      border-radius: 50%;
+      background: rgba(255, 196, 0, 0.12);
+      right: -190px;
+      top: -220px;
+    }
+
+    .about-cta-row {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .about-cta h2 {
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .about-cta h2 span {
+      color: var(--snp-yellow);
+    }
+
+    .about-cta p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 680px;
+    }
+
+    .backtop {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 56px;
+      height: 56px;
+      border: none;
+      border-radius: 50%;
+      background: var(--snp-green);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 16px 34px rgba(0, 61, 40, 0.26);
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .backtop i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+    }
+
+    .backtop svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.7;
+    }
+
+    .backtop:hover {
+      background: var(--snp-green-dark);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 38px rgba(0, 31, 22, 0.32);
+    }
+
+    @media (max-width: 1180px) {
+      .header-inner {
+        gap: 22px;
+      }
+
+      .nav {
+        gap: 18px;
+      }
+
+      .logo img {
+        width: 188px;
+        max-width: 188px;
+      }
+
+      .about-hero-inner,
+      .story-grid,
+      .coverage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-summary-card {
+        max-width: 560px;
+      }
+
+      .about-tabs {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .stats-row,
+      .process-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      body {
+        scroll-padding-top: 82px;
+      }
+
+      .topbar {
+        background: var(--snp-green);
+        color: #ffffff;
+        padding: 7px 0;
+      }
+
+      .topbar .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 14px;
+        padding-right: 14px;
+        gap: 10px;
+      }
+
+      .topbar-left {
+        display: none;
+      }
+
+      .top-icons {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .top-location {
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 1;
+        gap: 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .top-location i {
+        color: var(--snp-yellow);
+      }
+
+      .top-location svg {
+        width: 14px;
+        height: 14px;
+        stroke-width: 2.8;
+      }
+
+      .topbar .social-icons {
+        gap: 6px;
+        flex-shrink: 0;
+      }
+
+      .topbar .social-icons a {
+        width: 25px;
+        height: 25px;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .topbar .social-icons a svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      .topbar .social-icons a:hover {
+        background: var(--snp-yellow);
+        color: var(--snp-green-dark);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+      }
+
+      .header-inner {
+        min-height: 84px;
+      }
+
+      .logo img {
+        width: 165px;
+        max-width: 165px;
+      }
+
+      .nav,
+      .header-actions {
+        display: none;
+      }
+
+      .mobile-toggle {
+        margin-left: auto;
+      }
+
+      .about-hero {
+        padding: 68px 0 78px;
+        background-position: center;
+      }
+
+      .about-hero h1 {
+        font-size: clamp(46px, 13vw, 74px);
+      }
+
+      .about-hero p {
+        font-size: 16px;
+      }
+
+      .hero-buttons .btn {
+        min-height: 48px;
+        padding: 0 22px;
+        font-size: 12.5px;
+      }
+
+      .about-tabs-wrap {
+        margin-top: 22px;
+      }
+
+      .about-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.09);
+      }
+
+      .story-section,
+      .values-section,
+      .coverage-section,
+      .process-section,
+      .about-cta {
+        padding: 62px 0;
+      }
+
+      .story-media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-photo,
+      .story-photo.small {
+        min-height: 270px;
+      }
+
+      .values-grid,
+      .coverage-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .about-cta-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        padding-top: 42px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px 22px;
+      }
+
+      .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .footer-grid > div:nth-child(3),
+      .footer-grid > div:nth-child(4) {
+        display: none;
+      }
+
+      .footer img {
+        max-width: 145px;
+        margin-bottom: 12px;
+      }
+
+      .footer p {
+        max-width: 420px;
+        font-size: 13px;
+        line-height: 1.55;
+        margin-bottom: 14px;
+      }
+
+      .footer h4 {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .footer ul {
+        display: grid;
+        gap: 6px;
+      }
+
+      .footer li,
+      .footer a {
+        font-size: 12.5px;
+        line-height: 1.4;
+      }
+
+      .footer .social-icons {
+        margin-top: 8px;
+      }
+
+      .copyright {
+        font-size: 12px;
+        padding-top: 20px;
+        margin-top: 28px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .about-eyebrow {
+        font-size: 12px;
+      }
+
+      .about-hero h1 {
+        font-size: 44px;
+      }
+
+      .about-hero p {
+        font-size: 15px;
+        line-height: 1.52;
+      }
+
+      .hero-buttons {
+        gap: 12px;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 50px;
+        font-size: 12.5px;
+      }
+
+      .about-summary-card {
+        padding: 20px;
+      }
+
+      .about-tabs {
+        grid-template-columns: 1fr;
+      }
+
+      .story-copy h2,
+      .values-head h2,
+      .stats-head h2,
+      .coverage-copy h2,
+      .process-head h2,
+      .about-cta h2 {
+        font-size: 34px;
+      }
+
+      .stats-row,
+      .process-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-card {
+        padding: 22px;
+      }
+
+      .stat-card b {
+        font-size: 42px;
+      }
+
+      .footer {
+        padding-top: 36px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .footer-grid > div:nth-child(3),
+      .footer-grid > div:nth-child(4) {
+        display: none;
+      }
+
+      .footer img {
+        max-width: 132px;
+      }
+
+      .footer p {
+        font-size: 12.5px;
+        line-height: 1.5;
+      }
+
+      .footer h4 {
+        font-size: 12.5px;
+        margin-bottom: 8px;
+      }
+
+      .footer li,
+      .footer a {
+        font-size: 12px;
+      }
+
+      .footer-contact-line {
+        align-items: flex-start;
+      }
+
+      .footer-contact-line i {
+        margin-top: 2px;
+      }
+
+      .backtop {
+        width: 50px;
+        height: 50px;
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .backtop svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  </style>
 </head>
-<body class='active-nav-about'>
-  <div class='topbar'>
-    <div class='container'>
-      <div class='topbar-left'>Built for Philippine Weather. Custom Sunshade Solutions That Last.</div>
-      <div class='top-icons'><span>📍 Quezon City, Metro Manila, Philippines</span><span>f</span><span>◎</span><span>♪</span></div>
+
+<body class="active-nav-about">
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">Built for Philippine Weather. Custom Sunshade Solutions That Last.</div>
+
+      <div class="top-icons">
+        <span class="top-location">
+          <i data-lucide="map-pin"></i>
+          Pampanga, Philippines
+        </span>
+
+        <div class="social-icons">
+          <a href="https://www.facebook.com/SunshadeNetPhilippines" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.9h2.78l-.44 2.91h-2.34V22c4.79-.76 8.45-4.92 8.45-9.94z"/>
+            </svg>
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.94-1.9-.95-2.36-1C16.9 2.6 12 2.6 12 2.6h-.01s-4.9 0-8.2.24c-.46.05-1.46.06-2.36 1C.73 4.56.5 6.2.5 6.2S.25 8.12.25 10.03v1.8c0 1.91.25 3.83.25 3.83s.23 1.64.94 2.36c.9.94 2.08.91 2.61 1.01 1.89.18 7.95.24 7.95.24s4.91-.01 8.21-.25c.46-.05 1.46-.06 2.36-1 .71-.72.94-2.36.94-2.36s.24-1.92.24-3.83v-1.8c0-1.91-.24-3.83-.24-3.83zM9.75 14.5v-6.7l6.3 3.36-6.3 3.34z"/>
+            </svg>
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16.7 2c.35 3.03 2.04 4.84 5.02 5.03v3.41c-1.73.17-3.25-.4-4.91-1.47v6.38c0 8.1-8.84 10.63-12.4 4.82-2.29-3.74-.89-10.31 6.46-10.58v3.6c-.57.09-1.18.23-1.74.42-1.67.57-2.62 1.64-2.36 3.52.49 3.6 7.12 4.66 6.57-2.37V2h3.36z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-  <header class='site-header'>
-    <div class='container header-inner'>
-      <a class='logo' href='index.html'><img src='assets/images/logo.webp' alt='Sunshade Net Philippines'></a>
-      <nav class='nav'>
-        <a href='index.html'>Home</a>
-        <a href='services.html'>Services</a>
-        <a href='projects.html'>Projects</a>
-        <a href='product.html'>Products</a>
-        <a href='about.html'>About Us</a>
-        <a href='contact.html'>Contact</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/75b2a2d5092fcf8cbc983c4ada5e865e57bd0c55/assets/images/Sunshade_logo.png" alt="Sunshade Net Philippines">
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <div class='header-actions'>
-        <a class='btn btn-outline' href='request-quote.html'>Book Site Visit <span>▣</span></a>
-        <a class='btn btn-yellow' href='request-quote.html'>Request a Quote <span>→</span></a>
+
+      <div class="header-actions">
+        <a class="btn btn-outline" href="request-quote.html">
+          Book Site Visit
+          <i data-lucide="calendar-check"></i>
+        </a>
+
+        <a class="btn btn-yellow" href="request-quote.html">
+          Request a Quote
+          <i data-lucide="arrow-right"></i>
+        </a>
       </div>
-      <button class='mobile-toggle' aria-label='Open menu'>☰</button>
+
+      <button class="mobile-toggle" aria-label="Open menu">☰</button>
     </div>
-  </header><section class='hero page-hero' style="--hero-img:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=85')"><div class='container'><div class='eyebrow'>About Us</div><h1 class='headline'>We got you<br><span class='accent'>covered.</span></h1><p class='hero-copy'>Sunshade Net Philippines provides premium sunshade net solutions with professional installation across the Philippines.</p><div class='hero-buttons'><a class='btn btn-yellow' href='request-quote.html'>Request a Quote <span>→</span></a><a class='btn btn-outline' href='request-quote.html'>Book Site Visit <span>▣</span></a></div></div></section>
-<section class='section'><div class='container two-col'><div><div class='kicker'>Who We Are</div><h2 class='section-title'>Your partner in shade solutions</h2><div class='under' style='margin-left:0'></div><p>At Sunshade Net Philippines, we specialize in the design, supply, and installation of high-quality sunshade nets that are built to withstand heat, rain, and strong winds of the Philippine climate.</p><p>From initial consultation and measurement to design, installation, and after-sales support, we make the process simple, smooth, and worry-free.</p><p>Whether it’s for your home, car park, patio, school, resort, or commercial property, we deliver customized shade solutions that combine functionality, durability, and aesthetic appeal.</p><a class='btn btn-dark' href='request-quote.html'>Request a Quote <span>→</span></a></div><div class='media-grid'><div class='big' style="--img:url('https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=85')"></div><div class='media-stack'><div class='small' style="--img:url('https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=1200&q=85')"></div><div class='small' style="--img:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85')"></div></div></div></div></section>
-<section class='section section-soft'><div class='container'><div class='section-head'><h2 class='section-title'>Our commitment to you</h2><div class='under'></div></div><div class='cards cards-5'><div class='info-card service-body'><div class='icon'>🛡</div><h3>Quality Materials</h3><p>UV-protected and weather-resistant nets.</p></div><div class='info-card service-body'><div class='icon'>👤</div><h3>Professional Team</h3><p>Experienced installers with attention to detail.</p></div><div class='info-card service-body'><div class='icon'>🛠</div><h3>Custom Solutions</h3><p>Every space is unique, so every quote is tailored.</p></div><div class='info-card service-body'><div class='icon'>🤝</div><h3>Honest & Transparent</h3><p>Clear communication and no hidden charges.</p></div><div class='info-card service-body'><div class='icon'>🎧</div><h3>After-sales Support</h3><p>Support after installation for satisfaction.</p></div></div></div></section>
-<section class='stats'><div class='container stats-grid'><div class='stat'><b>500+</b><div><span>Projects Completed</span><small>Across the Philippines</small></div></div><div class='stat'><b>300+</b><div><span>Happy Clients</span><small>Homes, businesses & institutions</small></div></div><div class='stat'><b>100%</b><div><span>Weather Ready</span><small>Built for Philippine climate</small></div></div><div class='stat'><b>5+</b><div><span>Years Experience</span><small>In sunshade solutions</small></div></div></div></section><section class='section section-soft'><div class='container process-grid'>
-  <div class='process-intro'><div class='kicker'>Our Process</div><h2>From Request<br>To Installation</h2><p>We make it simple for you. Our team guides you every step of the way.</p><a class='btn btn-dark' href='request-quote.html'>Start Your Project <span>→</span></a></div>
-  <div class='process-step'><div class='icon'>💬</div><strong>01 Send Your Request</strong><p>Tell us about your project and requirements.</p></div>
-  <div class='process-step'><div class='icon'>👷</div><strong>02 Site Visit / Assessment</strong><p>We measure the area and recommend the best solution.</p></div>
-  <div class='process-step'><div class='icon'>📄</div><strong>03 Quote & Design</strong><p>You receive a tailored quotation and design plan.</p></div>
-  <div class='process-step'><div class='icon'>🛠</div><strong>04 Installation</strong><p>Our team installs with safety and care.</p></div>
-</div></section><section class='cta-band'><div class='container cta-row'><div><h2>Let's build your <span class='accent'>perfect shade solution.</span></h2><p>Request a quote or book a site visit today.</p></div><div class='hero-buttons'><a class='btn btn-dark' href='request-quote.html'>Request a Quote <span>→</span></a><a class='btn btn-outline' style='border-color:#07150f;color:#07150f' href='request-quote.html'>Book Site Visit <span>▣</span></a></div></div></section>
-  <footer class='footer'>
-    <div class='container footer-grid'>
+  </header>
+
+  <main class="about-page">
+    <section class="about-hero on-dark">
+      <div class="container about-hero-inner">
+        <div class="about-hero-copy">
+          <div class="about-eyebrow">About Sunshade Net Philippines</div>
+          <h1>We got you <span>covered.</span></h1>
+          <p>We provide custom sunshade net design, supply, fabrication, and professional installation for homes, schools, car parks, resorts, commercial spaces, and special outdoor structures.</p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-yellow" href="request-quote.html">
+              Request a Quote
+              <i data-lucide="arrow-right"></i>
+            </a>
+
+            <a class="btn btn-outline" href="request-quote.html">
+              Book Site Visit
+              <i data-lucide="calendar-check"></i>
+            </a>
+          </div>
+        </div>
+
+        <aside class="about-summary-card">
+          <h2>What We Do</h2>
+
+          <ul class="about-summary-list">
+            <li><i data-lucide="ruler"></i><span>Custom measurement and project planning</span></li>
+            <li><i data-lucide="layers"></i><span>Shade net supply and material recommendations</span></li>
+            <li><i data-lucide="construction"></i><span>Structure, support, and layout guidance</span></li>
+            <li><i data-lucide="hard-hat"></i><span>Professional installation and finishing</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <div class="about-tabs-wrap">
+      <div class="container">
+        <div class="about-tabs">
+          <a href="#who-we-are"><i data-lucide="users"></i>Who We Are</a>
+          <a href="#commitment"><i data-lucide="shield-check"></i>Commitment</a>
+          <a href="#coverage"><i data-lucide="map"></i>Coverage</a>
+          <a href="#process"><i data-lucide="clipboard-check"></i>Process</a>
+          <a href="#quote"><i data-lucide="file-text"></i>Start Project</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="story-section" id="who-we-are">
+      <div class="container story-grid">
+        <div class="story-copy">
+          <div class="kicker">Who We Are</div>
+          <h2>Your partner in practical shade solutions.</h2>
+
+          <p>At Sunshade Net Philippines, we specialize in designing and installing sunshade net systems that help make outdoor spaces cooler, cleaner, and more usable.</p>
+
+          <p>Every project starts with understanding the actual space. We look at size, sun exposure, usage, structure needs, and the type of finish that will work best for the client.</p>
+
+          <p>Whether it is for a home, car park, patio, school, resort, or commercial property, our goal is to provide a shade solution that is functional, durable, and visually clean.</p>
+
+          <div class="hero-buttons" style="margin-top:28px;">
+            <a class="btn btn-dark" href="request-quote.html">
+              Request a Quote
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-media-grid">
+            <div class="story-photo" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_22%20PM%20%281%29.png')"></div>
+
+            <div class="story-photo-stack">
+              <div class="story-photo small" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_23%20PM%20%283%29.png')"></div>
+              <div class="story-photo small" style="--img:url('https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/84129a5b68596f9bc41c4e1cdf418ee5afdef27f/assets/images/ChatGPT%20Image%20Jun%2028%2C%202026%2C%2004_28_24%20PM%20%285%29.png')"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="values-section" id="commitment">
+      <div class="container">
+        <div class="values-head">
+          <div class="kicker">Our Commitment</div>
+          <h2>Built around quality, clarity, and proper installation.</h2>
+          <p>We want every project to feel simple for the client, from the first message to the final installation.</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <i data-lucide="shield-check"></i>
+            <h3>Quality Materials</h3>
+            <p>Shade materials selected for outdoor use and Philippine weather conditions.</p>
+          </div>
+
+          <div class="value-card">
+            <i data-lucide="users"></i>
+            <h3>Professional Team</h3>
+            <p>Installation support with attention to layout, structure, and finishing.</p>
+          </div>
+
+          <div class="value-card">
+            <i data-lucide="ruler"></i>
+            <h3>Custom Solutions</h3>
+            <p>Each quote is prepared based on the actual space and project needs.</p>
+          </div>
+
+          <div class="value-card">
+            <i data-lucide="handshake"></i>
+            <h3>Clear Communication</h3>
+            <p>We explain the process, requirements, and recommendations clearly.</p>
+          </div>
+
+          <div class="value-card">
+            <i data-lucide="headphones"></i>
+            <h3>After-Sales Support</h3>
+            <p>Support after installation for questions, concerns, and follow-up needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section on-dark">
+      <div class="container">
+        <div class="stats-head">
+          <div class="kicker">Why Clients Choose Us</div>
+          <h2>Shade solutions made for real outdoor conditions.</h2>
+          <p>From homes to business spaces, we help clients plan shade systems that match their space, budget, and daily use.</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <b>500+</b>
+            <span>Projects Completed</span>
+            <small>Sample target metric for completed shade installations.</small>
+          </div>
+
+          <div class="stat-card">
+            <b>300+</b>
+            <span>Happy Clients</span>
+            <small>For homes, businesses, schools, and facilities.</small>
+          </div>
+
+          <div class="stat-card">
+            <b>100%</b>
+            <span>Weather Ready</span>
+            <small>Designed with Philippine heat, rain, and wind in mind.</small>
+          </div>
+
+          <div class="stat-card">
+            <b>5+</b>
+            <span>Years Experience</span>
+            <small>Experience in sunshade product and installation services.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="coverage-section" id="coverage">
+      <div class="container coverage-grid">
+        <div class="coverage-copy">
+          <div class="kicker">Service Coverage</div>
+          <h2>We handle shade needs for different spaces.</h2>
+          <p>We work with homeowners, schools, businesses, resorts, and property owners who need cleaner and more comfortable outdoor spaces.</p>
+        </div>
+
+        <div class="coverage-cards">
+          <div class="coverage-card">
+            <i data-lucide="home"></i>
+            <h3>Homes & Patios</h3>
+            <p>Outdoor living areas, gardens, terraces, balconies, and family spaces.</p>
+          </div>
+
+          <div class="coverage-card">
+            <i data-lucide="car"></i>
+            <h3>Car Parks</h3>
+            <p>Driveways, carports, open lots, and commercial parking areas.</p>
+          </div>
+
+          <div class="coverage-card">
+            <i data-lucide="school"></i>
+            <h3>Schools</h3>
+            <p>Playgrounds, activity areas, waiting zones, and covered walkways.</p>
+          </div>
+
+          <div class="coverage-card">
+            <i data-lucide="building-2"></i>
+            <h3>Commercial Spaces</h3>
+            <p>Resorts, cafés, restaurants, business entrances, and customer spaces.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section" id="process">
+      <div class="container">
+        <div class="process-head">
+          <div class="kicker">Our Process</div>
+          <h2>From request to installation.</h2>
+          <p>We keep the process simple so you know what happens before installation starts.</p>
+        </div>
+
+        <div class="process-row">
+          <div class="process-card" data-step="01">
+            <i data-lucide="message-circle"></i>
+            <h3>Send Your Request</h3>
+            <p>Tell us about your project, space, location, and shade needs.</p>
+          </div>
+
+          <div class="process-card" data-step="02">
+            <i data-lucide="clipboard-check"></i>
+            <h3>Site Assessment</h3>
+            <p>We review the space and recommend the best shade setup.</p>
+          </div>
+
+          <div class="process-card" data-step="03">
+            <i data-lucide="file-text"></i>
+            <h3>Quote & Design</h3>
+            <p>You receive a quotation based on size, material, and structure needs.</p>
+          </div>
+
+          <div class="process-card" data-step="04">
+            <i data-lucide="hard-hat"></i>
+            <h3>Installation</h3>
+            <p>Our team handles installation, support, tension, and final finishing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-cta on-dark" id="quote">
+      <div class="container about-cta-row">
+        <div>
+          <h2>Ready to build your <span>shade solution?</span></h2>
+          <p>Send your project details today and we’ll help you choose the proper shade setup for your space.</p>
+        </div>
+
+        <div class="hero-buttons">
+          <a class="btn btn-yellow" href="request-quote.html">
+            Request a Quote
+            <i data-lucide="arrow-right"></i>
+          </a>
+
+          <a class="btn btn-outline" href="request-quote.html">
+            Book Site Visit
+            <i data-lucide="calendar-check"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
       <div>
-        <img src='assets/images/logo.webp' alt='Sunshade Net Philippines'>
+        <img src="https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/75b2a2d5092fcf8cbc983c4ada5e865e57bd0c55/assets/images/Sunshade_logo.png" alt="Sunshade Net Philippines">
         <p>We provide premium sunshade net solutions with professional installation across the Philippines.</p>
-        <div class='social'><a>f</a><a>◎</a><a>♪</a></div>
+
+        <div class="social-icons">
+          <a href="https://www.facebook.com/SunshadeNetPhilippines" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.9h2.78l-.44 2.91h-2.34V22c4.79-.76 8.45-4.92 8.45-9.94z"/>
+            </svg>
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23.5 6.2s-.23-1.64-.94-2.36c-.9-.94-1.9-.95-2.36-1C16.9 2.6 12 2.6 12 2.6h-.01s-4.9 0-8.2.24c-.46.05-1.46.06-2.36 1C.73 4.56.5 6.2.5 6.2S.25 8.12.25 10.03v1.8c0 1.91.25 3.83.25 3.83s.23 1.64.94 2.36c.9.94 2.08.91 2.61 1.01 1.89.18 7.95.24 7.95.24s4.91-.01 8.21-.25c.46-.05 1.46-.06 2.36-1 .71-.72.94-2.36.94-2.36s.24-1.92.24-3.83v-1.8c0-1.91-.24-3.83-.24-3.83zM9.75 14.5v-6.7l6.3 3.36-6.3 3.34z"/>
+            </svg>
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16.7 2c.35 3.03 2.04 4.84 5.02 5.03v3.41c-1.73.17-3.25-.4-4.91-1.47v6.38c0 8.1-8.84 10.63-12.4 4.82-2.29-3.74-.89-10.31 6.46-10.58v3.6c-.57.09-1.18.23-1.74.42-1.67.57-2.62 1.64-2.36 3.52.49 3.6 7.12 4.66 6.57-2.37V2h3.36z"/>
+            </svg>
+          </a>
+        </div>
       </div>
-      <div><h4>Quick Links</h4><ul><li><a href='index.html'>Home</a></li><li><a href='services.html'>Services</a></li><li><a href='projects.html'>Projects</a></li><li><a href='product.html'>Products</a></li><li><a href='about.html'>About Us</a></li><li><a href='contact.html'>Contact</a></li></ul></div>
-      <div><h4>Services</h4><ul><li>Home / Residential</li><li>Car Park Shade</li><li>School / Playground</li><li>Resort / Commercial</li><li>Custom Structure</li><li>Supply Only</li></ul></div>
-      <div><h4>Support</h4><ul><li><a href='request-quote.html'>Request a Quote</a></li><li><a href='request-quote.html'>Book Site Visit</a></li><li>FAQs</li><li>Privacy Policy</li><li>Terms & Conditions</li></ul></div>
-      <div><h4>Contact Us</h4><ul><li>☎ 0965 123 4567</li><li>✉ info@sunshadenetphilippines.com</li><li>📍 Quezon City, Metro Manila, Philippines</li></ul></div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>Home / Residential</li>
+          <li>Car Park Shade</li>
+          <li>School / Playground</li>
+          <li>Resort / Commercial</li>
+          <li>Custom Structure</li>
+          <li>Supply Only</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="request-quote.html">Request a Quote</a></li>
+          <li><a href="request-quote.html">Book Site Visit</a></li>
+          <li>FAQs</li>
+          <li>Privacy Policy</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li>☎ 0965 123 4567</li>
+          <li>✉ info@sunshadenetphilippines.com</li>
+          <li>
+            <span class="footer-contact-line">
+              <i data-lucide="map-pin"></i>
+              Quezon City, Metro Manila, Philippines
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class='container copyright'>© 2025 Sunshade Net Philippines. All Rights Reserved.</div>
+
+    <div class="container copyright">© 2025 Sunshade Net Philippines. All Rights Reserved.</div>
   </footer>
-  <button class='backtop'>↑</button>
-  <script src='assets/js/main.js'></script>
-</body></html>
+
+  <button class="backtop" aria-label="Back to top" type="button">
+    <i data-lucide="chevron-up"></i>
+  </button>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    const backTopBtn = document.querySelector(".backtop");
+
+    if (backTopBtn) {
+      backTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
