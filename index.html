@@ -218,23 +218,6 @@
       stroke-width: 2.1;
     }
 
-    .process-step .icon {
-      width: 86px;
-      height: 86px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      background: #ffffff;
-      color: var(--snp-green);
-      border: 1px solid rgba(0, 61, 40, 0.12);
-      box-shadow: 0 16px 34px rgba(0, 61, 40, 0.1);
-    }
-
-    .process-step .icon svg {
-      width: 34px;
-      height: 34px;
-      stroke-width: 1.9;
-    }
-
     /* SERVICES — COMPACT 3 + 3 FIT SCREEN */
     .section:has(.services-3-grid) {
       padding-top: 0;
@@ -361,6 +344,160 @@
       border-bottom: 2px solid var(--snp-yellow);
     }
 
+    /* UPDATED PROCESS SECTION */
+    .section-soft {
+      background: linear-gradient(135deg, #001f16 0%, #003d28 52%, #00150f 100%);
+      color: #ffffff;
+      padding: 82px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-soft::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 14% 20%, rgba(255, 196, 0, 0.16), transparent 26%),
+        radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.08), transparent 22%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0));
+      pointer-events: none;
+    }
+
+    .section-soft::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -160px;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(255, 196, 0, 0.16);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .process-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 0.95fr repeat(4, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .process-intro {
+      padding: 30px 28px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+    }
+
+    .process-intro .kicker {
+      color: var(--snp-yellow);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .process-intro h2 {
+      margin: 0 0 18px;
+      color: #ffffff;
+      font-size: clamp(34px, 3vw, 52px);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+    }
+
+    .process-intro p {
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .process-step {
+      position: relative;
+      padding: 28px 22px 26px;
+      border-radius: 18px;
+      background: #ffffff;
+      color: var(--snp-text);
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .process-step:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 34px 70px rgba(0, 0, 0, 0.24);
+    }
+
+    .process-step::before {
+      content: "";
+      position: absolute;
+      top: 54px;
+      left: -22px;
+      width: 22px;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 196, 0, 0.65) 0 7px,
+        transparent 7px 13px
+      );
+    }
+
+    .process-step:nth-child(2)::before {
+      display: none;
+    }
+
+    .process-step .icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 0 26px;
+      border-radius: 16px;
+      background: rgba(0, 61, 40, 0.08);
+      color: var(--snp-green);
+      border: 1px solid rgba(0, 61, 40, 0.14);
+      box-shadow: none;
+    }
+
+    .process-step .icon svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 2;
+    }
+
+    .process-step strong {
+      display: block;
+      position: relative;
+      padding-top: 38px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .process-step strong::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 30px;
+      line-height: 1;
+      color: var(--snp-yellow);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .process-step p {
+      margin: 0;
+      color: #58645f;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
     .social-icons {
       display: flex;
       align-items: center;
@@ -426,6 +563,18 @@
 
       .services-3-grid .service-img {
         min-height: 205px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-intro {
+        grid-column: span 2;
+      }
+
+      .process-step::before {
+        display: none;
       }
     }
 
@@ -532,6 +681,14 @@
 
       .services-3-grid .service-body {
         padding: 34px 22px 22px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-intro {
+        grid-column: auto;
       }
     }
 
@@ -799,25 +956,25 @@
 
       <div class="process-step">
         <div class="icon"><i data-lucide="message-circle"></i></div>
-        <strong>01 Send Your Request</strong>
+        <strong data-step="01">Send Your Request</strong>
         <p>Tell us about your project and requirements.</p>
       </div>
 
       <div class="process-step">
         <div class="icon"><i data-lucide="ruler"></i></div>
-        <strong>02 Site Visit / Assessment</strong>
+        <strong data-step="02">Site Visit / Assessment</strong>
         <p>We measure the area and recommend the best solution.</p>
       </div>
 
       <div class="process-step">
         <div class="icon"><i data-lucide="clipboard-list"></i></div>
-        <strong>03 Quote & Design</strong>
+        <strong data-step="03">Quote & Design</strong>
         <p>You receive a tailored quotation and design plan.</p>
       </div>
 
       <div class="process-step">
         <div class="icon"><i data-lucide="hard-hat"></i></div>
-        <strong>04 Installation</strong>
+        <strong data-step="04">Installation</strong>
         <p>Our team installs with safety and care.</p>
       </div>
     </div>
