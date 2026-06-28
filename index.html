@@ -8,6 +8,151 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
+    :root {
+      --snp-green: #003d28;
+      --snp-green-dark: #001f16;
+      --snp-yellow: #ffc400;
+      --snp-text: #07150f;
+    }
+
+    /* FIX: Better header logo sizing */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      width: 168px;
+      max-width: 168px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .site-header {
+      position: relative;
+      z-index: 50;
+    }
+
+    .header-inner {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .header-actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* FIX: Hero spacing */
+    .hero {
+      position: relative;
+      min-height: 680px;
+      padding: 132px 0 170px;
+      display: flex;
+      align-items: center;
+      background-image:
+        linear-gradient(90deg, rgba(0, 31, 22, 0.96) 0%, rgba(0, 31, 22, 0.86) 30%, rgba(0, 31, 22, 0.4) 56%, rgba(0, 31, 22, 0.08) 100%),
+        var(--hero-img);
+      background-size: cover;
+      background-position: center;
+      overflow: visible;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 3;
+    }
+
+    .headline {
+      margin-bottom: 26px;
+      line-height: 0.98;
+    }
+
+    .hero-copy {
+      max-width: 520px;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* FIX: The feature strip is now clearly below buttons, not touching them */
+    .feature-strip {
+      position: relative;
+      z-index: 20;
+      width: min(1320px, calc(100% - 48px));
+      margin: -72px auto 92px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: linear-gradient(135deg, rgba(0, 61, 40, 0.98), rgba(0, 37, 25, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 30px 32px;
+      min-height: 126px;
+      border-right: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .feature:last-child {
+      border-right: 0;
+    }
+
+    .feature .icon {
+      width: 54px;
+      height: 54px;
+      min-width: 54px;
+      border-radius: 50%;
+      background: rgba(255, 196, 0, 0.12);
+      color: var(--snp-yellow);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+    }
+
+    .feature h4 {
+      margin: 0 0 7px;
+      color: #ffffff;
+      font-size: 15px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .feature p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    /* Real social icons */
     .social-icons {
       display: flex;
       align-items: center;
@@ -37,9 +182,9 @@
     }
 
     .social-icons a:hover {
-      background: #ffc400;
-      color: #002b1b;
-      border-color: #ffc400;
+      background: var(--snp-yellow);
+      color: var(--snp-green-dark);
+      border-color: var(--snp-yellow);
       transform: translateY(-2px);
     }
 
@@ -64,6 +209,105 @@
       background: rgba(7, 21, 15, 0.12);
       color: #07150f;
       transform: translateY(-1px);
+    }
+
+    @media (max-width: 1180px) {
+      .header-inner {
+        gap: 22px;
+      }
+
+      .nav {
+        gap: 18px;
+      }
+
+      .logo img {
+        width: 145px;
+        max-width: 145px;
+      }
+
+      .feature-strip {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: -58px;
+      }
+
+      .feature:nth-child(2) {
+        border-right: 0;
+      }
+
+      .feature:nth-child(1),
+      .feature:nth-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .site-header {
+        position: relative;
+      }
+
+      .header-inner {
+        min-height: 78px;
+      }
+
+      .logo img {
+        width: 132px;
+        max-width: 132px;
+      }
+
+      .nav,
+      .header-actions {
+        display: none;
+      }
+
+      .mobile-toggle {
+        margin-left: auto;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 86px 0 120px;
+        background-position: center;
+      }
+
+      .headline {
+        font-size: clamp(48px, 13vw, 74px);
+      }
+
+      .feature-strip {
+        width: min(100% - 32px, 720px);
+        grid-template-columns: 1fr;
+        margin: -54px auto 72px;
+      }
+
+      .feature,
+      .feature:nth-child(1),
+      .feature:nth-child(2) {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+      }
+
+      .feature:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero {
+        padding: 72px 0 105px;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .feature-strip {
+        margin-top: -46px;
+      }
+
+      .feature {
+        padding: 24px;
+      }
     }
   </style>
 </head>
@@ -102,7 +346,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">
-        <img src="https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/ae798c2bd2a7a20f9baecb2d81659badeb03ab00/assets/images/logo.png" alt="Sunshade Net Philippines">
+        <img src="https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/75b2a2d5092fcf8cbc983c4ada5e865e57bd0c55/assets/images/Sunshade_logo.png" alt="Sunshade Net Philippines">
       </a>
 
       <nav class="nav">
@@ -406,7 +650,7 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <img src="https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/ae798c2bd2a7a20f9baecb2d81659badeb03ab00/assets/images/logo.png" alt="Sunshade Net Philippines">
+        <img src="https://raw.githubusercontent.com/Friedazebalili/SunshadeNetPhilippines/75b2a2d5092fcf8cbc983c4ada5e865e57bd0c55/assets/images/Sunshade_logo.png" alt="Sunshade Net Philippines">
         <p>We provide premium sunshade net solutions with professional installation across the Philippines.</p>
 
         <div class="social-icons">
