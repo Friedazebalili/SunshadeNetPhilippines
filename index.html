@@ -235,6 +235,110 @@
       stroke-width: 1.9;
     }
 
+    /* UPDATED SERVICES SECTION */
+    .cards.services-wide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .services-wide-grid .service-card {
+      position: relative;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 61, 40, 0.1);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .services-wide-grid .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 61, 40, 0.22);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.11);
+    }
+
+    .services-wide-grid .service-card::after {
+      content: "";
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 196, 0, 0.18);
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .services-wide-grid .service-card:hover::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .services-wide-grid .service-img {
+      min-height: 230px;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .services-wide-grid .service-body {
+      padding: 36px 30px 32px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .services-wide-grid .service-body h3 {
+      font-size: clamp(22px, 1.7vw, 30px);
+      line-height: 1.12;
+      margin-bottom: 16px;
+      max-width: 92%;
+    }
+
+    .services-wide-grid .service-body p {
+      font-size: 16px;
+      line-height: 1.65;
+      margin-bottom: 22px;
+      color: #475569;
+    }
+
+    .services-wide-grid .mini-list {
+      margin-top: auto;
+      display: grid;
+      gap: 10px;
+      font-size: 15px;
+    }
+
+    .services-wide-grid .mini-list li {
+      line-height: 1.45;
+    }
+
+    .services-wide-grid .mini-list li::marker {
+      color: var(--snp-yellow);
+    }
+
+    .services-note {
+      max-width: 760px;
+      margin: 26px auto 0;
+      text-align: center;
+      color: #58645f;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .services-note a {
+      color: var(--snp-green);
+      font-weight: 800;
+      text-decoration: none;
+      border-bottom: 2px solid var(--snp-yellow);
+    }
+
     .social-icons {
       display: flex;
       align-items: center;
@@ -320,6 +424,10 @@
       .feature:nth-child(2) {
         border-bottom: 1px solid rgba(255, 255, 255, 0.13);
       }
+
+      .cards.services-wide-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 900px) {
@@ -371,6 +479,19 @@
       .feature:last-child {
         border-bottom: 0;
       }
+
+      .cards.services-wide-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .services-wide-grid .service-img {
+        min-height: 215px;
+      }
+
+      .services-wide-grid .service-body {
+        padding: 34px 26px 30px;
+      }
     }
 
     @media (max-width: 520px) {
@@ -389,6 +510,10 @@
 
       .feature {
         padding: 24px;
+      }
+
+      .services-wide-grid .service-body h3 {
+        font-size: 24px;
       }
     }
   </style>
@@ -516,23 +641,19 @@
         <div class="under"></div>
       </div>
 
-      <div class="cards cards-6">
+      <div class="cards services-wide-grid">
         <article class="service-card">
           <div class="service-img" style="--img:url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85')">
             <div class="service-icon"><i data-lucide="home"></i></div>
           </div>
           <div class="service-body">
             <h3>Home / Residential Shade</h3>
-            <p>Perfect for patios, gardens, balconies, and outdoor living spaces.</p>
+            <p>Perfect for patios, gardens, balconies, terraces, and outdoor living spaces.</p>
             <ul class="mini-list">
-              <li>Patios & terraces</li>
-              <li>Balconies & decks</li>
-              <li>Garden areas</li>
+              <li>Patios and terraces</li>
+              <li>Balconies and decks</li>
+              <li>Garden and outdoor areas</li>
             </ul>
-            <a class="small-link" href="request-quote.html">
-              Request a Quote
-              <i data-lucide="arrow-right"></i>
-            </a>
           </div>
         </article>
 
@@ -542,16 +663,12 @@
           </div>
           <div class="service-body">
             <h3>Car Park Shade</h3>
-            <p>Protect your vehicles from sun and heat. Ideal for homes and businesses.</p>
+            <p>Protect your vehicles from sun exposure and heat with reliable shade structures.</p>
             <ul class="mini-list">
               <li>Residential carports</li>
-              <li>Commercial parking</li>
-              <li>Driveways</li>
+              <li>Commercial parking areas</li>
+              <li>Driveways and vehicle spaces</li>
             </ul>
-            <a class="small-link" href="request-quote.html">
-              Request a Quote
-              <i data-lucide="arrow-right"></i>
-            </a>
           </div>
         </article>
 
@@ -561,16 +678,12 @@
           </div>
           <div class="service-body">
             <h3>School / Playground Shade</h3>
-            <p>Safe and comfortable shaded areas for students and outdoor activities.</p>
+            <p>Create safer and cooler shaded areas for students, play zones, and walkways.</p>
             <ul class="mini-list">
               <li>Playgrounds</li>
-              <li>Walkways</li>
-              <li>Sports courts</li>
+              <li>School walkways</li>
+              <li>Sports and activity areas</li>
             </ul>
-            <a class="small-link" href="request-quote.html">
-              Request a Quote
-              <i data-lucide="arrow-right"></i>
-            </a>
           </div>
         </article>
 
@@ -580,16 +693,12 @@
           </div>
           <div class="service-body">
             <h3>Resort / Commercial Shade</h3>
-            <p>Custom shade solutions for poolsides, restaurants, walkways, and more.</p>
+            <p>Premium custom shade solutions for resorts, restaurants, poolside areas, and businesses.</p>
             <ul class="mini-list">
-              <li>Pool & lounge areas</li>
-              <li>Restaurants & cafés</li>
-              <li>Commercial spaces</li>
+              <li>Pool and lounge areas</li>
+              <li>Restaurants and cafés</li>
+              <li>Commercial open spaces</li>
             </ul>
-            <a class="small-link" href="request-quote.html">
-              Request a Quote
-              <i data-lucide="arrow-right"></i>
-            </a>
           </div>
         </article>
 
@@ -599,16 +708,12 @@
           </div>
           <div class="service-body">
             <h3>Custom Structure</h3>
-            <p>Bamboo, steel frame, or unique design? We can build it for you.</p>
+            <p>Need bamboo, steel frame, or a unique shade layout? We can design and build it.</p>
             <ul class="mini-list">
               <li>Bamboo structures</li>
-              <li>Steel frames</li>
-              <li>Custom shapes</li>
+              <li>Steel frame designs</li>
+              <li>Custom shapes and sizes</li>
             </ul>
-            <a class="small-link" href="request-quote.html">
-              Request a Quote
-              <i data-lucide="arrow-right"></i>
-            </a>
           </div>
         </article>
 
@@ -618,19 +723,19 @@
           </div>
           <div class="service-body">
             <h3>Supply Only</h3>
-            <p>High-quality sunshade nets in different sizes and colors.</p>
+            <p>High-quality sunshade nets available in different sizes, densities, and colors.</p>
             <ul class="mini-list">
               <li>UV-protected materials</li>
-              <li>Various sizes</li>
-              <li>Fast delivery</li>
+              <li>Various sizes available</li>
+              <li>Fast delivery options</li>
             </ul>
-            <a class="small-link" href="request-quote.html">
-              Request a Quote
-              <i data-lucide="arrow-right"></i>
-            </a>
           </div>
         </article>
       </div>
+
+      <p class="services-note">
+        Need help choosing the right shade solution? <a href="request-quote.html">Request a quote</a> and our team will recommend the best option for your space.
+      </p>
     </div>
   </section>
 
