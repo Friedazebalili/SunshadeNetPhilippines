@@ -11,11 +11,11 @@
     :root {
       --snp-green: #003d28;
       --snp-green-dark: #001f16;
+      --snp-green-deep: #00150f;
       --snp-yellow: #ffc400;
       --snp-text: #07150f;
     }
 
-    /* FIX: Better header logo sizing */
     .logo {
       display: inline-flex;
       align-items: center;
@@ -56,7 +56,6 @@
       gap: 14px;
     }
 
-    /* FIX: Hero spacing */
     .hero {
       position: relative;
       min-height: 680px;
@@ -95,7 +94,6 @@
       z-index: 10;
     }
 
-    /* FIX: The feature strip is now clearly below buttons, not touching them */
     .feature-strip {
       position: relative;
       z-index: 20;
@@ -123,17 +121,29 @@
       border-right: 0;
     }
 
-    .feature .icon {
-      width: 54px;
-      height: 54px;
-      min-width: 54px;
-      border-radius: 50%;
-      background: rgba(255, 196, 0, 0.12);
-      color: var(--snp-yellow);
+    .feature .icon,
+    .service-icon,
+    .process-step .icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 25px;
+      flex-shrink: 0;
+    }
+
+    .feature .icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      border-radius: 50%;
+      background: rgba(255, 196, 0, 0.13);
+      color: var(--snp-yellow);
+      box-shadow: inset 0 0 0 1px rgba(255, 196, 0, 0.16);
+    }
+
+    .feature .icon svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 2.1;
     }
 
     .feature h4 {
@@ -152,7 +162,39 @@
       line-height: 1.45;
     }
 
-    /* Real social icons */
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--snp-green);
+      color: #ffffff;
+      border: 4px solid #ffffff;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .service-icon svg {
+      width: 25px;
+      height: 25px;
+      stroke-width: 2.1;
+    }
+
+    .process-step .icon {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: var(--snp-green);
+      border: 1px solid rgba(0, 61, 40, 0.12);
+      box-shadow: 0 16px 34px rgba(0, 61, 40, 0.1);
+    }
+
+    .process-step .icon svg {
+      width: 34px;
+      height: 34px;
+      stroke-width: 1.9;
+    }
+
     .social-icons {
       display: flex;
       align-items: center;
@@ -382,7 +424,7 @@
 
   <div class="feature-strip">
     <div class="feature">
-      <div class="icon">☀</div>
+      <div class="icon"><i data-lucide="sun"></i></div>
       <div>
         <h4>UV Protection</h4>
         <p>Blocks up to 95% of harmful UV rays.</p>
@@ -390,7 +432,7 @@
     </div>
 
     <div class="feature">
-      <div class="icon">🛡</div>
+      <div class="icon"><i data-lucide="shield-check"></i></div>
       <div>
         <h4>Durable Materials</h4>
         <p>High-quality nets built to last for years.</p>
@@ -398,7 +440,7 @@
     </div>
 
     <div class="feature">
-      <div class="icon">🛠</div>
+      <div class="icon"><i data-lucide="wrench"></i></div>
       <div>
         <h4>Expert Installation</h4>
         <p>Professional team ensures safe installation.</p>
@@ -406,7 +448,7 @@
     </div>
 
     <div class="feature">
-      <div class="icon">⛈</div>
+      <div class="icon"><i data-lucide="cloud-rain-wind"></i></div>
       <div>
         <h4>Built for PH Weather</h4>
         <p>Designed to withstand heat, rain, and wind.</p>
@@ -425,7 +467,7 @@
       <div class="cards cards-6">
         <article class="service-card">
           <div class="service-img" style="--img:url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85')">
-            <div class="service-icon">⌂</div>
+            <div class="service-icon"><i data-lucide="home"></i></div>
           </div>
           <div class="service-body">
             <h3>Home / Residential Shade</h3>
@@ -441,7 +483,7 @@
 
         <article class="service-card">
           <div class="service-img" style="--img:url('https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=85')">
-            <div class="service-icon">🚗</div>
+            <div class="service-icon"><i data-lucide="car"></i></div>
           </div>
           <div class="service-body">
             <h3>Car Park Shade</h3>
@@ -457,7 +499,7 @@
 
         <article class="service-card">
           <div class="service-img" style="--img:url('https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=1200&q=85')">
-            <div class="service-icon">🏫</div>
+            <div class="service-icon"><i data-lucide="school"></i></div>
           </div>
           <div class="service-body">
             <h3>School / Playground Shade</h3>
@@ -473,7 +515,7 @@
 
         <article class="service-card">
           <div class="service-img" style="--img:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=85')">
-            <div class="service-icon">▦</div>
+            <div class="service-icon"><i data-lucide="building-2"></i></div>
           </div>
           <div class="service-body">
             <h3>Resort / Commercial Shade</h3>
@@ -489,7 +531,7 @@
 
         <article class="service-card">
           <div class="service-img" style="--img:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85')">
-            <div class="service-icon">🛠</div>
+            <div class="service-icon"><i data-lucide="construction"></i></div>
           </div>
           <div class="service-body">
             <h3>Custom Structure</h3>
@@ -505,7 +547,7 @@
 
         <article class="service-card">
           <div class="service-img" style="--img:url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=85')">
-            <div class="service-icon">▦</div>
+            <div class="service-icon"><i data-lucide="package-check"></i></div>
           </div>
           <div class="service-body">
             <h3>Supply Only</h3>
@@ -532,25 +574,25 @@
       </div>
 
       <div class="process-step">
-        <div class="icon">💬</div>
+        <div class="icon"><i data-lucide="message-circle"></i></div>
         <strong>01 Send Your Request</strong>
         <p>Tell us about your project and requirements.</p>
       </div>
 
       <div class="process-step">
-        <div class="icon">👷</div>
+        <div class="icon"><i data-lucide="ruler"></i></div>
         <strong>02 Site Visit / Assessment</strong>
         <p>We measure the area and recommend the best solution.</p>
       </div>
 
       <div class="process-step">
-        <div class="icon">📄</div>
+        <div class="icon"><i data-lucide="clipboard-list"></i></div>
         <strong>03 Quote & Design</strong>
         <p>You receive a tailored quotation and design plan.</p>
       </div>
 
       <div class="process-step">
-        <div class="icon">🛠</div>
+        <div class="icon"><i data-lucide="hard-hat"></i></div>
         <strong>04 Installation</strong>
         <p>Our team installs with safety and care.</p>
       </div>
@@ -723,6 +765,11 @@
   </footer>
 
   <button class="backtop">↑</button>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
