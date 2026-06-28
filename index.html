@@ -16,6 +16,10 @@
       --snp-text: #07150f;
     }
 
+    body {
+      scroll-padding-top: 112px;
+    }
+
     .logo {
       display: inline-flex;
       align-items: center;
@@ -24,20 +28,23 @@
     }
 
     .logo img {
-      width: 168px;
-      max-width: 168px;
+      width: 220px;
+      max-width: 220px;
       height: auto;
       display: block;
       object-fit: contain;
     }
 
     .site-header {
-      position: relative;
-      z-index: 50;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
     }
 
     .header-inner {
-      min-height: 92px;
+      min-height: 108px;
       display: flex;
       align-items: center;
       gap: 34px;
@@ -495,6 +502,85 @@
       line-height: 1.45;
     }
 
+    /* WHY CHOOSE SECTION — CENTERED WITH SITE ALIGNMENT */
+    .split-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      background: var(--snp-green-dark);
+      overflow: hidden;
+    }
+
+    .split-banner-content {
+      background:
+        linear-gradient(135deg, rgba(0, 61, 40, 0.98), rgba(0, 24, 17, 0.98));
+      color: #ffffff;
+      padding: 86px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .split-banner-content .section-title,
+    .split-banner-content ul {
+      width: min(100%, 520px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .split-banner-content .section-title {
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 28px;
+      font-size: clamp(34px, 3vw, 54px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    .split-banner-content .section-title::after {
+      content: "";
+      display: block;
+      width: 58px;
+      height: 4px;
+      background: var(--snp-yellow);
+      margin-top: 18px;
+      border-radius: 999px;
+    }
+
+    .split-banner-content ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      display: grid;
+      gap: 13px;
+    }
+
+    .split-banner-content li {
+      position: relative;
+      padding-left: 30px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .split-banner-content li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--snp-yellow);
+      font-weight: 900;
+    }
+
+    .split-banner-img {
+      min-height: 460px;
+      background-image: var(--img);
+      background-size: cover;
+      background-position: center;
+    }
+
     .social-icons {
       display: flex;
       align-items: center;
@@ -582,8 +668,8 @@
       }
 
       .logo img {
-        width: 145px;
-        max-width: 145px;
+        width: 188px;
+        max-width: 188px;
       }
 
       .feature-strip {
@@ -602,17 +688,22 @@
     }
 
     @media (max-width: 900px) {
+      body {
+        scroll-padding-top: 82px;
+      }
+
       .site-header {
-        position: relative;
+        position: sticky;
+        top: 0;
       }
 
       .header-inner {
-        min-height: 78px;
+        min-height: 84px;
       }
 
       .logo img {
-        width: 132px;
-        max-width: 132px;
+        width: 165px;
+        max-width: 165px;
       }
 
       .nav,
@@ -689,6 +780,24 @@
       .process-step::after {
         display: none;
       }
+
+      .split-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .split-banner-content {
+        padding: 64px 28px;
+      }
+
+      .split-banner-content .section-title,
+      .split-banner-content ul {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .split-banner-img {
+        min-height: 320px;
+      }
     }
 
     @media (max-width: 520px) {
@@ -734,6 +843,18 @@
 
       .process-line {
         white-space: normal;
+      }
+
+      .split-banner-content {
+        padding: 52px 22px;
+      }
+
+      .split-banner-content .section-title {
+        font-size: 34px;
+      }
+
+      .split-banner-img {
+        min-height: 250px;
       }
     }
   </style>
